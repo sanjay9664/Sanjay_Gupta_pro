@@ -2,119 +2,97 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { PROCESS_STEPS } from "@/data/process-steps";
-import { Compass, Layers, Layout, Code, CheckCircle2, Rocket, TrendingUp, Check } from "lucide-react";
+import { PROCESS_STEPS_DATA } from "@/data/process-steps";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const iconMap: Record<string, React.ReactNode> = {
-  Compass: <Compass className="w-5 h-5 text-indigo-400" />,
-  Layers: <Layers className="w-5 h-5 text-sky-400" />,
-  Layout: <Layout className="w-5 h-5 text-purple-400" />,
-  Code: <Code className="w-5 h-5 text-emerald-400" />,
-  CheckCircle2: <CheckCircle2 className="w-5 h-5 text-amber-400" />,
-  Rocket: <Rocket className="w-5 h-5 text-rose-400" />,
-  TrendingUp: <TrendingUp className="w-5 h-5 text-cyan-400" />,
-};
 
 export const ProcessSection: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const currentStep = PROCESS_STEPS_DATA[activeStep];
 
   return (
-    <section id="process" className="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-t border-white/10 relative">
-      <div className="text-center max-w-3xl mx-auto flex flex-col items-center gap-4 mb-16">
-        <span className="text-xs font-mono font-semibold uppercase tracking-widest text-indigo-400">
-          Proven Engineering Methodology
+    <section id="process" className="py-20 px-4 sm:px-8 max-w-7xl mx-auto border-t border-slate-200/80 relative">
+      <div className="text-center max-w-3xl mx-auto flex flex-col items-center gap-3 mb-12">
+        <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-600">
+          5-Phase Engineering Pipeline
         </span>
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-          How We Build Digital Products
+        <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-heading">
+          How We Build Your Application
         </h2>
-        <p className="text-slate-400 text-base">
-          A transparent, 7-phase development pipeline engineered for zero friction, predictable delivery, and enterprise-quality execution.
+        <p className="text-slate-600 text-sm sm:text-base max-w-xl">
+          A disciplined, transparent development process ensuring zero technical debt, predictable timelines, and clean handovers.
         </p>
       </div>
 
-      {/* Horizontal Interactive Step Pipeline Tabs */}
-      <div className="flex items-center justify-between gap-2 overflow-x-auto pb-6 mb-10 no-scrollbar">
-        {PROCESS_STEPS.map((step, idx) => {
+      {/* Process Tabs */}
+      <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+        {PROCESS_STEPS_DATA.map((step, idx) => {
           const isActive = activeStep === idx;
-          const isPast = idx < activeStep;
           return (
             <button
               key={step.number}
               onClick={() => setActiveStep(idx)}
               className={cn(
-                "flex items-center gap-3 px-4 py-3 rounded-2xl border text-xs font-medium whitespace-nowrap transition-all select-none shrink-0",
+                "px-5 py-2.5 rounded-full text-xs font-semibold transition-all border select-none flex items-center gap-2",
                 isActive
-                  ? "bg-indigo-600/20 border-indigo-500 text-white shadow-lg shadow-indigo-500/10"
-                  : isPast
-                  ? "bg-white/5 border-emerald-500/30 text-emerald-300"
-                  : "bg-white/5 border-white/10 text-slate-400 hover:border-white/20"
+                  ? "bg-gradient-to-r from-indigo-600 to-sky-500 text-white border-transparent shadow-lg shadow-indigo-500/20"
+                  : "bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300"
               )}
             >
-              <span
-                className={cn(
-                  "w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-mono font-bold",
-                  isActive
-                    ? "bg-indigo-500 text-white"
-                    : isPast
-                    ? "bg-emerald-500/20 text-emerald-400"
-                    : "bg-white/10 text-slate-400"
-                )}
-              >
-                {isPast ? <Check className="w-3 h-3" /> : step.number}
-              </span>
+              <span className="font-mono text-[11px] opacity-80">{step.number}</span>
               <span>{step.title}</span>
             </button>
           );
         })}
       </div>
 
-      {/* Detailed Active Step Focus Card */}
+      {/* Active Phase Card Display */}
       <motion.div
-        key={activeStep}
+        key={currentStep.number}
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="rounded-3xl bg-slate-900 border border-white/10 p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 shadow-2xl"
+        className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/80 shadow-xl shadow-slate-200/40 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
       >
-        <div className="lg:col-span-7 flex flex-col justify-between gap-6">
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-3">
-              <span className="text-xs font-mono font-bold text-indigo-400 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20">
-                Phase {PROCESS_STEPS[activeStep].number}
-              </span>
-              <span className="text-xs text-slate-400 font-mono">
-                {PROCESS_STEPS[activeStep].subtitle}
-              </span>
-            </div>
-
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-              {PROCESS_STEPS[activeStep].title}
-            </h3>
-
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-              {PROCESS_STEPS[activeStep].description}
-            </p>
+        <div className="lg:col-span-7 flex flex-col gap-4">
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100">
+              PHASE {currentStep.number}
+            </span>
+            <span className="text-xs text-slate-500 font-mono">STEP {currentStep.number} OF 05</span>
           </div>
 
-          <div className="flex items-center gap-4 pt-4 border-t border-white/10 text-xs text-slate-400">
-            <span>Click any phase above to preview key milestones.</span>
+          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 font-heading">
+            {currentStep.title}: {currentStep.subtitle}
+          </h3>
+
+          <p className="text-sm text-slate-600 leading-relaxed">
+            {currentStep.description}
+          </p>
+
+          <div className="pt-2">
+            <h4 className="text-xs font-mono font-bold uppercase text-slate-500 mb-3">Key Deliverables:</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {currentStep.details.map((del, idx) => (
+                <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>{del}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Milestone Bullet Checklist */}
-        <div className="lg:col-span-5 bg-white/5 rounded-2xl p-6 border border-white/10 flex flex-col justify-center gap-4">
-          <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-slate-300">
-            Key Phase Deliverables
-          </h4>
-          <ul className="flex flex-col gap-3">
-            {PROCESS_STEPS[activeStep].details.map((detail, idx) => (
-              <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-200">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                <span>{detail}</span>
-              </li>
-            ))}
-          </ul>
+        {/* Phase Summary Pill Column */}
+        <div className="lg:col-span-5 p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col gap-4">
+          <span className="text-xs font-mono font-bold uppercase text-indigo-600">PHASE OUTCOME</span>
+          <p className="text-xs text-slate-600 leading-relaxed">
+            Every phase produces tangible, inspectable assets — code commits, Figma specs, staging URLs, or automated test suites.
+          </p>
+          <div className="pt-2 border-t border-slate-200 text-xs font-mono text-slate-500 flex justify-between">
+            <span>Next Phase:</span>
+            <span className="font-bold text-slate-900">{PROCESS_STEPS_DATA[(activeStep + 1) % PROCESS_STEPS_DATA.length].title}</span>
+          </div>
         </div>
       </motion.div>
     </section>

@@ -62,3 +62,5 @@ export const PROCESS_STEPS: ProcessStep[] = [
     icon: "Rocket"
   }
 ];
+
+export const PROCESS_STEPS_DATA = PROCESS_STEPS;

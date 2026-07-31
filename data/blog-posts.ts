@@ -190,3 +190,5 @@ In today's digital landscape, speed equals revenue. A 1-second delay in page loa
 `
   }
 ];
+
+export const BLOG_POSTS_DATA = BLOG_POSTS;

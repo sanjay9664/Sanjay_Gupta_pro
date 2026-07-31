@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Poppins, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { ClientLayoutWrapper } from "@/components/layout/ClientLayoutWrapper";
 import { JsonLd } from "@/components/seo/JsonLd";
 
-const sansFont = Plus_Jakarta_Sans({
+const poppinsFont = Poppins({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-sans",
   display: "swap",
 });
@@ -74,12 +75,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sansFont.variable} ${monoFont.variable}`}>
+    <html lang="en" className={`${poppinsFont.variable} ${monoFont.variable}`}>
       <head>
         <JsonLd type="Organization" />
         <JsonLd type="WebSite" />
       </head>
-      <body className="font-sans bg-[#07080c] text-slate-100 antialiased selection:bg-indigo-600 selection:text-white">
+      <body className="font-sans bg-[#f8fafc] text-slate-900 antialiased selection:bg-indigo-600 selection:text-white">
         <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
       </body>
     </html>

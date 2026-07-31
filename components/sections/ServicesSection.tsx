@@ -3,94 +3,93 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { SERVICES_DATA } from "@/data/services";
-import { ArrowUpRight, Code2, Zap, Layers, Rocket, ShoppingCart, Sparkles } from "lucide-react";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-
-const iconMap: Record<string, React.ReactNode> = {
-  Code2: <Code2 className="w-5 h-5 text-indigo-400" />,
-  Zap: <Zap className="w-5 h-5 text-sky-400" />,
-  Layers: <Layers className="w-5 h-5 text-emerald-400" />,
-  Rocket: <Rocket className="w-5 h-5 text-purple-400" />,
-  ShoppingCart: <ShoppingCart className="w-5 h-5 text-amber-400" />,
-  Sparkles: <Sparkles className="w-5 h-5 text-indigo-400" />,
-};
+import { Code2, Layers, Smartphone, Palette, ArrowRight, Cpu, Server } from "lucide-react";
 
 interface ServicesSectionProps {
   onOpenInquiry?: () => void;
 }
 
+const SERVICES_CARDS = [
+  {
+    icon: Code2,
+    title: "Web Development",
+    description: "Fast, responsive and scalable websites built with modern technologies like Next.js, React, and TypeScript.",
+    color: "bg-indigo-50 text-indigo-600",
+    href: "/services/custom-web-development",
+  },
+  {
+    icon: Layers,
+    title: "SaaS Platforms",
+    description: "Powerful SaaS solutions & MVPs that help you automate operations, serve clients, and scale your business.",
+    color: "bg-sky-50 text-sky-600",
+    href: "/services/full-stack-development",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Apps",
+    description: "Cross-platform mobile & progressive web apps for iOS and Android that users love using every day.",
+    color: "bg-emerald-50 text-emerald-600",
+    href: "/services/nextjs-development",
+  },
+  {
+    icon: Palette,
+    title: "UI/UX Design",
+    description: "Beautiful, user-centered interface designs, modern design systems, and fluid micro-animations that convert.",
+    color: "bg-purple-50 text-purple-600",
+    href: "/services/headless-ecommerce-development",
+  },
+];
+
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenInquiry }) => {
   return (
-    <section id="services" className="py-20 px-4 sm:px-8 max-w-7xl mx-auto relative">
-      <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-12">
-        <div className="flex flex-col gap-2">
-          <span className="text-xs font-mono font-semibold uppercase tracking-widest text-indigo-400">
-            Core Capabilities
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            From Idea to Production
-          </h2>
-        </div>
-
-        <Button
-          variant="outline"
-          size="sm"
-          href="/services"
-          showArrow
-          data-cursor="Services"
-        >
-          All Services
-        </Button>
+    <section className="py-24 px-4 sm:px-8 max-w-7xl mx-auto relative z-10">
+      {/* Header */}
+      <div className="text-center max-w-2xl mx-auto flex flex-col items-center gap-3 mb-16">
+        <span className="text-xs font-mono font-bold tracking-widest text-indigo-600 uppercase">
+          WHAT WE DO
+        </span>
+        <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-heading">
+          End-to-end Digital Solutions
+        </h2>
+        <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+          From concept and UI design to full-stack engineering, cloud infrastructure, and ongoing maintenance.
+        </p>
       </div>
 
-      {/* Streamlined Services Grid (6 Cards, 3 Columns) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {SERVICES_DATA.map((service, idx) => {
-          const IconElement = iconMap[service.iconName] || <Code2 className="w-5 h-5 text-indigo-400" />;
+      {/* 4 Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {SERVICES_CARDS.map((service, idx) => {
+          const IconComponent = service.icon;
           return (
             <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 15 }}
+              key={service.title}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.05 }}
-              whileHover={{ y: -4 }}
-              className="group rounded-2xl bg-white/5 border border-white/10 p-6 flex flex-col justify-between hover:border-indigo-500/40 hover:bg-white/[0.08] transition-all shadow-lg"
-              data-cursor="Explore"
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="group rounded-3xl bg-white border border-slate-200/80 p-6 flex flex-col justify-between shadow-lg shadow-slate-200/30 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300 transition-all duration-300"
             >
-              <div className="flex flex-col gap-3">
-                <div className="flex items-center justify-between">
-                  <div className="p-2.5 rounded-xl bg-slate-900 border border-white/10">
-                    {IconElement}
-                  </div>
-                  <span className="text-xs font-mono font-bold text-slate-500">
-                    {service.number}
-                  </span>
+              <div className="flex flex-col gap-4">
+                <div className={`w-12 h-12 rounded-2xl ${service.color} flex items-center justify-center shrink-0`}>
+                  <IconComponent className="w-6 h-6" />
                 </div>
 
-                <h3 className="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">
+                <h3 className="text-lg font-bold text-slate-900 font-heading group-hover:text-indigo-600 transition-colors">
                   {service.title}
                 </h3>
 
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  {service.shortDescription}
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  {service.description}
                 </p>
-
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {service.technologies.slice(0, 3).map((tech) => (
-                    <Badge key={tech} variant="default" className="text-[10px]">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-indigo-400 group-hover:text-indigo-300">
-                <Link href={`/services/${service.slug}`} className="flex items-center gap-1">
-                  <span>View Details</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <div className="pt-6 mt-4 border-t border-slate-100 flex items-center justify-between">
+                <Link
+                  href={service.href}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 hover:text-indigo-700 transition-colors"
+                >
+                  <span>Learn More</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </motion.div>

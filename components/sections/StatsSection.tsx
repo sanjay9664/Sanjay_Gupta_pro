@@ -13,7 +13,8 @@ export const StatsSection: React.FC = () => {
       suffix: "+",
       description: "Live IoT, Telehealth & Web Apps",
       icon: CheckCircle2,
-      color: "text-emerald-400",
+      color: "text-emerald-600",
+      bg: "bg-emerald-50",
     },
     {
       label: "Client Satisfaction",
@@ -21,7 +22,8 @@ export const StatsSection: React.FC = () => {
       suffix: "%",
       description: "Verified 5-Star Track Record",
       icon: Award,
-      color: "text-amber-400",
+      color: "text-amber-600",
+      bg: "bg-amber-50",
     },
     {
       label: "Performance Score",
@@ -29,7 +31,8 @@ export const StatsSection: React.FC = () => {
       suffix: "/100",
       description: "Sub-Second Core Web Vitals",
       icon: Zap,
-      color: "text-indigo-400",
+      color: "text-indigo-600",
+      bg: "bg-indigo-50",
     },
     {
       label: "Production Uptime",
@@ -37,12 +40,13 @@ export const StatsSection: React.FC = () => {
       suffix: "%",
       description: "24/7 Reliability & SLA",
       icon: ShieldCheck,
-      color: "text-sky-400",
+      color: "text-sky-600",
+      bg: "bg-sky-50",
     },
   ];
 
   return (
-    <section className="py-16 px-4 sm:px-8 max-w-7xl mx-auto border-t border-white/10 relative">
+    <section className="py-12 px-4 sm:px-8 max-w-7xl mx-auto border-t border-slate-200/80 relative">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {stats.map((stat, idx) => {
           const Icon = stat.icon;
@@ -53,16 +57,18 @@ export const StatsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="p-6 rounded-2xl bg-slate-900/80 border border-white/10 flex flex-col gap-2 hover:border-indigo-500/30 transition-all shadow-xl"
+              className="p-6 rounded-3xl bg-white border border-slate-200/80 flex flex-col gap-2 shadow-lg shadow-slate-200/40 hover:border-indigo-300 transition-all"
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-semibold uppercase text-slate-400">
+                <span className="text-xs font-mono font-bold uppercase text-slate-500">
                   {stat.label}
                 </span>
-                <Icon className={`w-4 h-4 ${stat.color}`} />
+                <div className={`w-8 h-8 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center`}>
+                  <Icon className="w-4 h-4" />
+                </div>
               </div>
 
-              <div className="text-3xl sm:text-4xl font-extrabold font-mono text-white pt-1">
+              <div className="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 pt-1">
                 {stat.value === 99.9 ? (
                   <span>99.9%</span>
                 ) : (
@@ -70,7 +76,7 @@ export const StatsSection: React.FC = () => {
                 )}
               </div>
 
-              <p className="text-[11px] text-slate-400 leading-tight pt-1">
+              <p className="text-xs text-slate-500 leading-tight pt-1 font-medium">
                 {stat.description}
               </p>
             </motion.div>

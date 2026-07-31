@@ -2,76 +2,75 @@
 
 @layer base {
   :root {
-    --bg-dark: #07080c;
-    --bg-card: #0e1017;
-    --bg-card-hover: #141722;
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-glow: rgba(99, 102, 241, 0.3);
-    --accent-indigo: #6366f1;
-    --accent-cyan: #06b6d4;
+    --bg-light: #f8fafc;
+    --bg-card-light: #ffffff;
+    --border-subtle-light: rgba(15, 23, 42, 0.08);
+    --text-primary-light: #0f172a;
+    --text-secondary-light: #475569;
+    
+    --accent-indigo: #4f46e5;
+    --accent-blue: #2563eb;
+    --accent-cyan: #0284c7;
     --accent-emerald: #10b981;
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
   }
 
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
-    background-color: var(--bg-dark);
-    color: var(--text-primary);
+    color-scheme: light dark;
+    background-color: var(--bg-light);
+    color: var(--text-primary-light);
   }
 
   body {
-    background-color: var(--bg-dark);
-    color: var(--text-primary);
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-family: var(--font-sans), "Poppins", system-ui, sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans), "Poppins", system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    color: #0f172a;
+  }
 }
 
-/* Glassmorphism & Card Utility Classes */
-.glass-panel {
-  background: rgba(14, 16, 23, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-subtle);
+/* Studio Light Card Utilities */
+.glass-card-light {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
 }
 
-.glass-nav {
-  background: rgba(7, 8, 12, 0.8);
+.glass-nav-light {
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
 
-/* Background Ambient Grid & Glows */
-.bg-grid-pattern {
-  background-size: 40px 40px;
+/* Hero Background Ambient Gradients */
+.bg-hero-pattern {
+  background-color: #f8fafc;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 30%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
 }
 
-.glow-gradient-indigo {
-  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
-}
-
-.glow-gradient-cyan {
-  background: radial-gradient(circle at center, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
-}
-
-/* Text Gradient Utilities */
-.text-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+/* Text Gradients for Light Theme */
+.text-gradient-indigo {
+  background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient-accent {
-  background: linear-gradient(135deg, #818cf8 0%, #38bdf8 50%, #34d399 100%);
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -81,14 +80,14 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #07080c;
+  background: #f8fafc;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(148, 163, 184, 0.4);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(100, 116, 139, 0.6);
 }
 
 /* Marquee Infinite Scroll Animation */
@@ -105,19 +104,4 @@
 
 .animate-marquee:hover {
   animation-play-state: paused;
-}
-
-/* Reduced Motion Override for Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .animate-marquee {
-    animation: none !important;
-    flex-wrap: wrap;
-    width: 100%;
-  }
 }

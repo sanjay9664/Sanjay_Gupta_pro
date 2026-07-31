@@ -32,6 +32,7 @@ export interface ProjectItem {
   featured: boolean;
   demoUrl?: string;
   githubUrl?: string;
+  image?: string;
   isDemo: boolean;
 }
 
@@ -43,14 +44,15 @@ export interface FAQItem {
 
 export interface TestimonialItem {
   id: string;
-  quote: string;
-  author: string;
+  name: string;
   role: string;
   company: string;
-  avatar?: string;
-  rating: number;
-  isDemo: boolean;
+  content: string;
+  avatarUrl?: string;
+  projectSlug?: string;
 }
+
+export type Testimonial = TestimonialItem;
 
 export interface ProcessStep {
   number: string;
