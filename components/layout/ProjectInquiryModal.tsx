@@ -82,7 +82,7 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
     setStep(step - 1);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email) {
       setErrorMsg("Please fill out your name and email.");
@@ -92,11 +92,32 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
     setIsSubmitting(true);
     setErrorMsg("");
 
-    // Simulate server submission API response
-    setTimeout(() => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          company,
+          projectType: selectedServices.join(", ") || "Custom Project",
+          budget: selectedBudget,
+          timeline: selectedTimeline,
+          description: description || "Inquiry submitted via interactive modal.",
+        }),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setIsSubmitted(true);
+      } else {
+        setErrorMsg(data.error || "Submission failed. Please try again.");
+      }
+    } catch (err: any) {
+      setErrorMsg("Network error. Please try again later.");
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 1200);
+    }
   };
 
   const resetModal = () => {

@@ -2,10 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { Button } from "@/components/ui/Button";
-import { Menu, X, Code2, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface NavbarProps {
@@ -41,15 +42,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
       >
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-sky-500 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
-            <Code2 className="w-5 h-5" />
+          <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-2xl overflow-hidden shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform bg-white border border-slate-200 p-1 shrink-0 flex items-center justify-center">
+            <Image
+              src="/projects/fev-emblem-max.png"
+              alt={SITE_CONFIG.brandName}
+              width={56}
+              height={56}
+              className="object-contain w-full h-full rounded-xl"
+              priority
+            />
           </div>
           <div className="flex flex-col">
-            <span className="text-sm font-extrabold tracking-tight text-slate-900 font-heading leading-tight">
+            <span className="text-base sm:text-lg font-black tracking-tight text-slate-900 font-heading leading-tight group-hover:text-indigo-600 transition-colors">
               {SITE_CONFIG.brandName}
             </span>
-            <span className="text-[10px] font-mono font-medium tracking-widest text-slate-500 uppercase">
-              DIGITAL STUDIO
+            <span className="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-indigo-600 uppercase">
+              DESIGN • DEVELOP • GROW
             </span>
           </div>
         </Link>

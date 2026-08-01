@@ -28,7 +28,7 @@ export const ContactFormSection: React.FC = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Anti-spam honeypot check: If bot filled honeypot, silently ignore
@@ -46,10 +46,24 @@ export const ContactFormSection: React.FC = () => {
     setStatus("loading");
     setErrorMsg("");
 
-    // Simulate real submission
-    setTimeout(() => {
-      setStatus("success");
-    }, 1200);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setStatus("success");
+      } else {
+        setErrorMsg(data.error || "Failed to submit. Please try again.");
+        setStatus("error");
+      }
+    } catch (err: any) {
+      setErrorMsg("Network error. Please try again later.");
+      setStatus("error");
+    }
   };
 
   return (
@@ -84,11 +98,23 @@ export const ContactFormSection: React.FC = () => {
 
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
               <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400">
+                <Phone className="w-5 h-5" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs text-slate-400">Direct Phone</span>
+                <a href={`tel:${SITE_CONFIG.contact.phone.replace(/[^0-9+]/g, '')}`} className="text-sm font-semibold text-white hover:text-emerald-300">
+                  {SITE_CONFIG.contact.phone}
+                </a>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
+              <div className="p-3 rounded-xl bg-amber-500/10 text-amber-400">
                 <Clock className="w-5 h-5" />
               </div>
               <div className="flex flex-col">
                 <span className="text-xs text-slate-400">Response SLA Guarantee</span>
-                <span className="text-sm font-semibold text-white">Under 24 Hours (Mon – Fri)</span>
+                <span className="text-sm font-semibold text-white">Under 24 Hours</span>
               </div>
             </div>
 

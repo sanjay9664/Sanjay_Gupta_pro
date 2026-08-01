@@ -2,8 +2,9 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { SITE_CONFIG } from "@/lib/site-config";
-import { Code2, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Phone, Mail } from "lucide-react";
 
 interface FooterProps {
   onOpenInquiry?: () => void;
@@ -17,12 +18,18 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
         {/* Column 1: Brand */}
         <div className="md:col-span-5 flex flex-col gap-4">
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-sky-400 flex items-center justify-center text-white font-bold">
-              <Code2 className="w-5 h-5" />
+            <div className="relative w-12 h-12 rounded-2xl overflow-hidden bg-white p-1 border border-slate-700 shrink-0 flex items-center justify-center shadow-md">
+              <Image
+                src="/projects/fev-emblem-max.png"
+                alt={SITE_CONFIG.brandName}
+                width={48}
+                height={48}
+                className="object-contain w-full h-full rounded-xl"
+              />
             </div>
             <div className="flex flex-col">
-              <span className="text-base font-extrabold text-white font-heading">{SITE_CONFIG.brandName}</span>
-              <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">DIGITAL STUDIO</span>
+              <span className="text-lg font-black text-white font-heading">{SITE_CONFIG.brandName}</span>
+              <span className="text-[10px] font-mono tracking-widest text-indigo-400 uppercase">DESIGN • DEVELOP • GROW</span>
             </div>
           </Link>
           <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
@@ -53,10 +60,18 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">DIRECT INQUIRIES</span>
           <a
             href={`mailto:${SITE_CONFIG.contact.email}`}
-            className="text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors inline-flex items-center gap-1.5"
+            className="text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors inline-flex items-center gap-2"
           >
+            <Mail className="w-4 h-4 text-indigo-400" />
             <span>{SITE_CONFIG.contact.email}</span>
-            <ArrowUpRight className="w-4 h-4" />
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
+          <a
+            href={`tel:${SITE_CONFIG.contact.phone.replace(/[^0-9+]/g, '')}`}
+            className="text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors inline-flex items-center gap-2"
+          >
+            <Phone className="w-4 h-4 text-emerald-400" />
+            <span>{SITE_CONFIG.contact.phone}</span>
           </a>
           <button
             onClick={onOpenInquiry}

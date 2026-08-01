@@ -19,6 +19,14 @@ const monoFont = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: [
+      { url: "/projects/fev-emblem-max.png" },
+      { url: "/favicon.png?v=2" },
+    ],
+    shortcut: "/projects/fev-emblem-max.png",
+    apple: "/projects/fev-emblem-max.png",
+  },
   metadataBase: new URL(SITE_CONFIG.domain),
   title: {
     default: `${SITE_CONFIG.brandName} | Full-Stack Web Development Agency & Digital Studio`,

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { SITE_CONFIG } from "@/lib/site-config";
-import { ArrowRight, Play, Rocket, Users, Star, ShieldCheck, Zap, Sparkles } from "lucide-react";
+import { ArrowRight, Play, Rocket, Users, Star, Sparkles } from "lucide-react";
 
 interface HeroSectionProps {
   onOpenInquiry?: () => void;
@@ -141,38 +141,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
                 className="w-full h-[460px] sm:h-[520px] object-cover object-top filter contrast-[1.02] brightness-[1.01]"
               />
             </div>
-
-            {/* Floating Glass Card 1 (Top Left outside photo) */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="absolute -top-4 -left-6 px-4 py-3 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/80 shadow-xl shadow-slate-200/50 flex items-center gap-3 z-20"
-            >
-              <div className="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
-                <ShieldCheck className="w-4 h-4" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xs font-bold text-slate-900 font-heading">Clean Code</span>
-                <span className="text-[10px] text-slate-500 font-medium">Scalable Solutions</span>
-              </div>
-            </motion.div>
-
-            {/* Floating Glass Card 2 (Bottom Right outside photo) */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="absolute -bottom-4 -right-6 px-4 py-3 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/80 shadow-xl shadow-slate-200/50 flex items-center gap-3 z-20"
-            >
-              <div className="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
-                <Zap className="w-4 h-4" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xs font-bold text-slate-900 font-heading">Performance</span>
-                <span className="text-[10px] text-slate-500 font-medium">Built for Speed</span>
-              </div>
-            </motion.div>
           </div>
         </motion.div>
 
