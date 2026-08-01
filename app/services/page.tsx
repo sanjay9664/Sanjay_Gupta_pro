@@ -9,7 +9,7 @@ import { ArrowRight, CheckCircle2, Code2, Layers, Smartphone, Palette, Globe, Se
 
 export default function ServicesPage() {
   return (
-    <div className="pt-36 pb-24 px-4 sm:px-8 max-w-7xl mx-auto flex flex-col gap-14 relative z-10">
+    <div className="pt-28 sm:pt-36 pb-16 sm:pb-24 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col gap-10 sm:gap-14 relative z-10">
       <JsonLd
         type="Service"
         data={{
@@ -19,24 +19,24 @@ export default function ServicesPage() {
       />
 
       {/* Header Banner */}
-      <div className="text-center max-w-3xl mx-auto flex flex-col items-center gap-4">
+      <div className="text-center max-w-3xl mx-auto flex flex-col items-center gap-3 sm:gap-4">
         <span className="text-xs font-mono font-bold tracking-widest text-indigo-600 uppercase">
           CORE CAPABILITIES
         </span>
-        <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight font-heading">
+        <h1 className="text-3xl xs:text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight font-heading">
           Full-Stack Web & Product Engineering
         </h1>
-        <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+        <p className="text-slate-600 text-xs sm:text-base lg:text-lg leading-relaxed">
           From custom SaaS platforms and Next.js web applications to industrial IoT telemetry portals — engineered with zero technical debt.
         </p>
       </div>
 
       {/* Services Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {SERVICES_DATA.map((service) => (
           <div
             key={service.id}
-            className="group rounded-3xl bg-white border border-slate-200/80 p-8 flex flex-col justify-between shadow-xl shadow-slate-200/40 hover:border-indigo-300 hover:shadow-2xl transition-all duration-300"
+            className="group rounded-3xl bg-white border border-slate-200/80 p-5 sm:p-8 flex flex-col justify-between shadow-xl shadow-slate-200/40 hover:border-indigo-300 hover:shadow-2xl transition-all duration-300"
           >
             <div className="flex flex-col gap-5">
               <div className="flex items-center justify-between">

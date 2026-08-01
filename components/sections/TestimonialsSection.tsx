@@ -7,20 +7,20 @@ import { Star, Quote } from "lucide-react";
 
 export const TestimonialsSection: React.FC = () => {
   return (
-    <section className="py-20 px-4 sm:px-8 max-w-7xl mx-auto border-t border-slate-200/80 relative">
-      <div className="text-center max-w-3xl mx-auto flex flex-col items-center gap-3 mb-12">
+    <section className="py-16 sm:py-20 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-200/80 relative">
+      <div className="text-center max-w-3xl mx-auto flex flex-col items-center gap-3 mb-8 sm:mb-12">
         <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-600">
           Client Feedback & Reviews
         </span>
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-heading">
+        <h2 className="text-2xl xs:text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-heading">
           Trusted by Founders & Engineering Leaders
         </h2>
-        <p className="text-slate-600 text-sm max-w-xl">
+        <p className="text-slate-600 text-xs sm:text-sm max-w-xl">
           Here is what our clients say about our code quality, speed, communication, and project delivery.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
         {TESTIMONIALS_DATA.map((t, idx) => (
           <motion.div
             key={t.id}
@@ -28,7 +28,7 @@ export const TestimonialsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: idx * 0.1 }}
-            className="p-8 rounded-3xl bg-white border border-slate-200/80 shadow-lg shadow-slate-200/30 flex flex-col justify-between gap-6"
+            className="p-5 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-lg shadow-slate-200/30 flex flex-col justify-between gap-5 sm:gap-6"
           >
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-1 text-amber-500">

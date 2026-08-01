@@ -26,17 +26,17 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
     <div className="border-b border-white/10 last:border-none">
       <button
         onClick={onToggle}
-        className="w-full py-5 flex items-center justify-between text-left group focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg transition-colors"
+        className="w-full py-4 sm:py-5 min-h-[44px] flex items-center justify-between text-left group focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg transition-colors gap-2"
         aria-expanded={isOpen}
         aria-controls={`faq-answer-${id}`}
       >
-        <div className="flex items-center gap-3 pr-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 pr-2 min-w-0">
           {category && (
-            <span className="text-xs font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 shrink-0">
               {category}
             </span>
           )}
-          <span className="text-base sm:text-lg font-medium text-slate-100 group-hover:text-indigo-300 transition-colors">
+          <span className="text-sm sm:text-lg font-medium text-slate-100 group-hover:text-indigo-300 transition-colors leading-snug">
             {question}
           </span>
         </div>
@@ -59,7 +59,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="pb-6 text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl">
+            <p className="pb-5 sm:pb-6 text-xs sm:text-base text-slate-300 leading-relaxed max-w-3xl">
               {answer}
             </p>
           </motion.div>

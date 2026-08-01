@@ -30,7 +30,7 @@ export default function PortfolioPage() {
   });
 
   return (
-    <div className="pt-36 pb-24 px-4 sm:px-8 max-w-7xl mx-auto flex flex-col gap-12 relative z-10">
+    <div className="pt-28 sm:pt-36 pb-16 sm:pb-24 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col gap-8 sm:gap-12 relative z-10">
       <JsonLd
         type="ProfessionalService"
         data={{
@@ -40,51 +40,51 @@ export default function PortfolioPage() {
       />
 
       {/* Header Banner */}
-      <div className="text-center max-w-3xl mx-auto flex flex-col items-center gap-4">
+      <div className="text-center max-w-3xl mx-auto flex flex-col items-center gap-3 sm:gap-4">
         <span className="text-xs font-mono font-bold tracking-widest text-indigo-600 uppercase">
           PRODUCTION WORK PORTFOLIO
         </span>
-        <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight font-heading">
+        <h1 className="text-3xl xs:text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight font-heading">
           Selected Live Work & Engineering UI
         </h1>
-        <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+        <p className="text-slate-600 text-xs sm:text-base lg:text-lg leading-relaxed">
           Real production applications designed and engineered for clients — with live UI visual previews, telemetry dashboards, and real production URLs.
         </p>
       </div>
 
       {/* Top Engineering Stats Strip */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-3xl bg-white border border-slate-200/80 shadow-xl shadow-slate-200/40">
+      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 p-4 sm:p-6 rounded-3xl bg-white border border-slate-200/80 shadow-xl shadow-slate-200/40">
         <div className="flex flex-col gap-1 p-2">
-          <span className="text-[11px] font-mono uppercase font-bold text-slate-500">Live Projects</span>
-          <span className="text-2xl sm:text-3xl font-extrabold text-emerald-600 font-heading">
+          <span className="text-[10px] sm:text-[11px] font-mono uppercase font-bold text-slate-500">Live Projects</span>
+          <span className="text-xl sm:text-3xl font-extrabold text-emerald-600 font-heading">
             <AnimatedCounter to={7} suffix=" Production" />
           </span>
         </div>
 
-        <div className="flex flex-col gap-1 p-2 border-l border-slate-200 pl-4">
-          <span className="text-[11px] font-mono uppercase font-bold text-slate-500">IoT Devices Managed</span>
-          <span className="text-2xl sm:text-3xl font-extrabold text-indigo-600 font-heading">
+        <div className="flex flex-col gap-1 p-2 xs:border-l border-slate-200 xs:pl-4">
+          <span className="text-[10px] sm:text-[11px] font-mono uppercase font-bold text-slate-500">IoT Devices Managed</span>
+          <span className="text-xl sm:text-3xl font-extrabold text-indigo-600 font-heading">
             <AnimatedCounter to={10} suffix="k+" />
           </span>
         </div>
 
-        <div className="flex flex-col gap-1 p-2 border-l border-slate-200 pl-4">
-          <span className="text-[11px] font-mono uppercase font-bold text-slate-500">Avg Response Speed</span>
-          <span className="text-2xl sm:text-3xl font-extrabold text-sky-600 font-heading">
+        <div className="flex flex-col gap-1 p-2 md:border-l border-slate-200 md:pl-4">
+          <span className="text-[10px] sm:text-[11px] font-mono uppercase font-bold text-slate-500">Avg Response Speed</span>
+          <span className="text-xl sm:text-3xl font-extrabold text-sky-600 font-heading">
             &lt; 0.4s
           </span>
         </div>
 
-        <div className="flex flex-col gap-1 p-2 border-l border-slate-200 pl-4">
-          <span className="text-[11px] font-mono uppercase font-bold text-slate-500">System Uptime</span>
-          <span className="text-2xl sm:text-3xl font-extrabold text-amber-600 font-heading">
+        <div className="flex flex-col gap-1 p-2 xs:border-l border-slate-200 xs:pl-4">
+          <span className="text-[10px] sm:text-[11px] font-mono uppercase font-bold text-slate-500">System Uptime</span>
+          <span className="text-xl sm:text-3xl font-extrabold text-amber-600 font-heading">
             99.99%
           </span>
         </div>
       </div>
 
       {/* Category Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2 pb-2">
+      <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar max-w-full pb-2">
         {CATEGORY_TABS.map((tab) => {
           const isActive = activeTab === tab.id;
           return (
@@ -92,7 +92,7 @@ export default function PortfolioPage() {
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={cn(
-                "px-4 py-2 rounded-full text-xs font-semibold transition-all border select-none",
+                "px-4 py-2.5 rounded-full text-xs font-semibold transition-all border select-none shrink-0 min-h-[44px] flex items-center justify-center",
                 isActive
                   ? "bg-gradient-to-r from-indigo-600 to-sky-500 text-white border-transparent shadow-md shadow-indigo-500/20"
                   : "bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300"
@@ -105,7 +105,7 @@ export default function PortfolioPage() {
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
         {filteredProjects.map((project) => (
           <div
             key={project.id}

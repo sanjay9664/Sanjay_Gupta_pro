@@ -46,8 +46,8 @@ export const StatsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-12 px-4 sm:px-8 max-w-7xl mx-auto border-t border-slate-200/80 relative">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <section className="py-10 sm:py-16 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-200/80 relative">
+      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
         {stats.map((stat, idx) => {
           const Icon = stat.icon;
           return (
@@ -57,18 +57,18 @@ export const StatsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="p-6 rounded-3xl bg-white border border-slate-200/80 flex flex-col gap-2 shadow-lg shadow-slate-200/40 hover:border-indigo-300 transition-all"
+              className="p-4 sm:p-6 rounded-3xl bg-white border border-slate-200/80 flex flex-col gap-2 shadow-lg shadow-slate-200/40 hover:border-indigo-300 transition-all"
             >
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold uppercase text-slate-500">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-[11px] sm:text-xs font-mono font-bold uppercase text-slate-500 truncate">
                   {stat.label}
                 </span>
-                <div className={`w-8 h-8 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center`}>
+                <div className={`w-8 h-8 rounded-xl ${stat.bg} ${stat.color} flex items-center justify-center shrink-0`}>
                   <Icon className="w-4 h-4" />
                 </div>
               </div>
 
-              <div className="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 pt-1">
+              <div className="text-2xl sm:text-4xl font-extrabold font-heading text-slate-900 pt-1">
                 {stat.value === 99.9 ? (
                   <span>99.9%</span>
                 ) : (

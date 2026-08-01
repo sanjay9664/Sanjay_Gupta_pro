@@ -12,8 +12,8 @@ interface StudioShowcaseSectionProps {
 
 export const StudioShowcaseSection: React.FC<StudioShowcaseSectionProps> = ({ onOpenInquiry }) => {
   return (
-    <section className="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-t border-white/10 relative z-10">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/10 relative z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         {/* Left Column: Professionally Designed Image/Visual Showcase */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -26,33 +26,33 @@ export const StudioShowcaseSection: React.FC<StudioShowcaseSectionProps> = ({ on
           <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500" />
 
           {/* Main Visual Composition Frame */}
-          <div className="relative rounded-3xl bg-slate-950 border border-white/15 p-6 sm:p-8 shadow-2xl overflow-hidden flex flex-col gap-6">
+          <div className="relative rounded-3xl bg-slate-950 border border-white/15 p-4 sm:p-8 shadow-2xl overflow-hidden flex flex-col gap-5 sm:gap-6">
             {/* Top Bar */}
-            <div className="flex items-center justify-between pb-4 border-b border-white/10">
+            <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/10">
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-rose-500" />
-                <div className="w-3 h-3 rounded-full bg-amber-500" />
-                <div className="w-3 h-3 rounded-full bg-emerald-500" />
-                <span className="ml-2 text-xs font-mono text-slate-400">studio-architecture-v3.tsx</span>
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-rose-500" />
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-amber-500" />
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500" />
+                <span className="ml-1 sm:ml-2 text-[10px] sm:text-xs font-mono text-slate-400 truncate max-w-[160px] sm:max-w-none">studio-architecture-v3.tsx</span>
               </div>
-              <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <span className="text-[9px] sm:text-[10px] font-mono px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
                 Production Ready
               </span>
             </div>
 
             {/* Visual Layer 1: IoT & Health Dashboard Teaser */}
-            <div className="rounded-2xl bg-slate-900 border border-white/10 p-5 flex flex-col gap-3 shadow-lg">
-              <div className="flex items-center justify-between">
+            <div className="rounded-2xl bg-slate-900 border border-white/10 p-3.5 sm:p-5 flex flex-col gap-3 shadow-lg">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5">
                 <div className="flex items-center gap-2 text-xs font-bold text-white">
-                  <Activity className="w-4 h-4 text-indigo-400" />
-                  <span>Real-Time Telemetry & Healthcare System</span>
+                  <Activity className="w-4 h-4 text-indigo-400 shrink-0" />
+                  <span className="truncate">Real-Time Telemetry & Healthcare System</span>
                 </div>
-                <span className="text-[10px] font-mono text-indigo-300 bg-indigo-500/10 px-2 py-0.5 rounded">
+                <span className="text-[10px] font-mono text-indigo-300 bg-indigo-500/10 px-2 py-0.5 rounded shrink-0">
                   WebSockets Active
                 </span>
               </div>
 
-              <div className="grid grid-cols-3 gap-2 pt-1">
+              <div className="grid grid-cols-1 xs:grid-cols-3 gap-2 pt-1">
                 <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
                   <span className="text-[10px] text-slate-400 block font-mono">Response Speed</span>
                   <span className="text-sm font-bold text-emerald-400 font-mono">0.38s</span>

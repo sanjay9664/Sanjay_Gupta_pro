@@ -29,6 +29,16 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    width: 100%;
+  }
+
+  img, svg, video, canvas, audio, iframe, embed, object {
+    max-width: 100%;
+    height: auto;
+  }
+
+  button, a, input, select, textarea {
+    touch-action: manipulation;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -36,6 +46,8 @@
     letter-spacing: -0.02em;
     font-weight: 700;
     color: #0f172a;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 }
 

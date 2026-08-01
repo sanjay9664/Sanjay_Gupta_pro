@@ -138,7 +138,7 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2.5 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -153,12 +153,12 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-        className="relative w-full max-w-2xl bg-slate-900 border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl shadow-black/80 z-10 my-auto overflow-hidden"
+        className="relative w-full max-w-2xl bg-slate-900 border border-white/10 rounded-2xl p-4 sm:p-8 shadow-2xl shadow-black/80 z-10 my-auto overflow-hidden max-h-[92vh] flex flex-col"
       >
         {/* Close Button */}
         <button
           onClick={resetModal}
-          className="absolute top-5 right-5 p-2 rounded-full bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+          className="absolute top-3 right-3 sm:top-5 sm:right-5 w-11 h-11 rounded-full bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-center z-20 shrink-0"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />

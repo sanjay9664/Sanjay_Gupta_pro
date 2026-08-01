@@ -31,26 +31,26 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const sizeStyles = {
-    sm: "px-4 py-2 text-xs gap-1.5",
-    md: "px-6 py-3 text-sm gap-2",
-    lg: "px-8 py-4 text-base gap-2.5 font-medium",
+    sm: "px-3.5 py-1.5 text-xs gap-1.5",
+    md: "px-5 py-2.5 text-xs sm:text-sm gap-2 font-semibold",
+    lg: "px-6 py-3 text-xs sm:text-sm gap-2 font-semibold",
   };
 
   const variantStyles = {
     primary:
-      "bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-600/25 border border-indigo-500/50 hover:shadow-indigo-500/40",
+      "bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:via-indigo-500 hover:to-cyan-400 text-white shadow-md shadow-indigo-500/20 border border-white/20 hover:shadow-lg hover:shadow-indigo-500/30 hover:-translate-y-0.5 active:translate-y-0",
     secondary:
-      "bg-white/10 hover:bg-white/15 text-white border border-white/10 backdrop-blur-md hover:border-white/25",
+      "bg-white/10 hover:bg-white/15 text-white border border-white/15 backdrop-blur-md hover:border-white/30 hover:-translate-y-0.5 active:translate-y-0",
     outline:
-      "bg-transparent hover:bg-white/5 text-slate-200 border border-slate-700 hover:border-slate-500",
+      "bg-white/90 hover:bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow hover:-translate-y-0.5 active:translate-y-0",
     ghost:
-      "bg-transparent hover:bg-white/5 text-slate-300 hover:text-white",
+      "bg-transparent hover:bg-white/10 text-slate-300 hover:text-white",
     gradient:
-      "bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 hover:from-indigo-400 hover:to-emerald-400 text-white shadow-lg shadow-indigo-500/20 font-semibold border border-white/20",
+      "bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white shadow-md shadow-indigo-500/20 font-semibold border border-white/20 hover:-translate-y-0.5 active:translate-y-0",
   };
 
   const baseClasses = cn(
-    "inline-flex items-center justify-center rounded-full transition-all duration-300 font-medium tracking-tight disabled:opacity-50 disabled:pointer-events-none select-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:ring-offset-2 focus:ring-offset-slate-950",
+    "inline-flex items-center justify-center rounded-full transition-all duration-300 tracking-tight disabled:opacity-50 disabled:pointer-events-none select-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:ring-offset-2 focus:ring-offset-slate-950",
     sizeStyles[size],
     variantStyles[variant],
     className

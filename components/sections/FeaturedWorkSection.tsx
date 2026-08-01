@@ -13,13 +13,13 @@ export const FeaturedWorkSection: React.FC = () => {
   const featuredProjects = PROJECTS_DATA.slice(0, 3);
 
   return (
-    <section id="work" className="py-20 px-4 sm:px-8 max-w-7xl mx-auto border-t border-white/10 relative">
-      <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-12">
+    <section id="work" className="py-16 sm:py-20 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/10 relative">
+      <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8 sm:mb-12">
         <div className="flex flex-col gap-2">
           <span className="text-xs font-mono font-semibold uppercase tracking-widest text-indigo-400">
             Featured Live Projects
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Selected Live Work
           </h2>
         </div>
@@ -30,13 +30,14 @@ export const FeaturedWorkSection: React.FC = () => {
           href="/portfolio"
           showArrow
           data-cursor="Portfolio"
+          className="w-fit cursor-pointer"
         >
           View All {PROJECTS_DATA.length} Projects
         </Button>
       </div>
 
       {/* Streamlined Live Project Showcase Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
         {featuredProjects.map((project, idx) => (
           <motion.div
             key={project.id}
@@ -44,34 +45,34 @@ export const FeaturedWorkSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: idx * 0.08 }}
-            className="group rounded-2xl bg-slate-900/90 border border-white/10 p-6 flex flex-col justify-between gap-6 hover:border-indigo-500/40 transition-all shadow-xl"
+            className="group rounded-2xl bg-slate-900/90 border border-white/10 p-5 sm:p-6 flex flex-col justify-between gap-5 hover:border-indigo-500/40 transition-all shadow-xl"
             data-cursor="View"
           >
             <div className="flex flex-col gap-3">
-              <div className="flex items-center justify-between">
-                <Badge variant="indigo">{project.category}</Badge>
+              <div className="flex items-center justify-between gap-2">
+                <Badge variant="indigo" className="truncate max-w-[160px]">{project.category}</Badge>
                 {project.demoUrl && (
                   <a
                     href={project.demoUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/20 transition-colors"
+                    className="inline-flex items-center gap-1 text-[10px] font-mono px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/20 transition-colors shrink-0"
                   >
                     <Globe className="w-3 h-3" /> Live Site
                   </a>
                 )}
               </div>
 
-              <h3 className="text-xl font-bold text-white group-hover:text-indigo-300 transition-colors">
+              <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-indigo-300 transition-colors leading-snug">
                 {project.title}
               </h3>
-              <p className="text-xs font-mono text-indigo-400">{project.tagline}</p>
+              <p className="text-xs font-mono text-indigo-400 truncate">{project.tagline}</p>
               <p className="text-xs text-slate-300 leading-relaxed line-clamp-3">
                 {project.solution}
               </p>
 
               {/* Metrics Pills */}
-              <div className="grid grid-cols-3 gap-1.5 pt-2">
+              <div className="grid grid-cols-1 xs:grid-cols-3 gap-1.5 pt-2">
                 {project.metrics.map((m, mIdx) => (
                   <div key={mIdx} className="p-2 rounded-lg bg-white/5 border border-white/10 text-center">
                     <span className="text-[9px] text-slate-400 font-mono block truncate">{m.label}</span>

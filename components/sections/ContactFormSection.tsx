@@ -67,71 +67,71 @@ export const ContactFormSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-t border-white/10 relative">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <section id="contact" className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/10 relative">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
         {/* Left Column: Direct Contact Info */}
-        <div className="lg:col-span-5 flex flex-col justify-between gap-8">
-          <div className="flex flex-col gap-4">
+        <div className="lg:col-span-5 flex flex-col justify-between gap-6 sm:gap-8">
+          <div className="flex flex-col gap-3 sm:gap-4">
             <span className="text-xs font-mono font-semibold uppercase tracking-widest text-indigo-400">
               Direct Communication Channel
             </span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            <h2 className="text-2xl xs:text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
               Let's Talk About Your Project
             </h2>
-            <p className="text-slate-300 text-base leading-relaxed">
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
               Prefer a direct conversation? Fill out the form or reach out directly to schedule an architecture discovery session.
             </p>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
-              <div className="p-3 rounded-xl bg-indigo-500/10 text-indigo-400">
+          <div className="flex flex-col gap-3.5 sm:gap-4">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3.5 sm:gap-4">
+              <div className="p-2.5 sm:p-3 rounded-xl bg-indigo-500/10 text-indigo-400 shrink-0">
                 <Mail className="w-5 h-5" />
               </div>
-              <div className="flex flex-col">
-                <span className="text-xs text-slate-400">Direct Email</span>
-                <a href={`mailto:${SITE_CONFIG.contact.email}`} className="text-sm font-semibold text-white hover:text-indigo-300">
+              <div className="flex flex-col min-w-0">
+                <span className="text-[11px] sm:text-xs text-slate-400">Direct Email</span>
+                <a href={`mailto:${SITE_CONFIG.contact.email}`} className="text-xs sm:text-sm font-semibold text-white hover:text-indigo-300 truncate">
                   {SITE_CONFIG.contact.email}
                 </a>
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
-              <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3.5 sm:gap-4">
+              <div className="p-2.5 sm:p-3 rounded-xl bg-emerald-500/10 text-emerald-400 shrink-0">
                 <Phone className="w-5 h-5" />
               </div>
-              <div className="flex flex-col">
-                <span className="text-xs text-slate-400">Direct Phone</span>
-                <a href={`tel:${SITE_CONFIG.contact.phone.replace(/[^0-9+]/g, '')}`} className="text-sm font-semibold text-white hover:text-emerald-300">
+              <div className="flex flex-col min-w-0">
+                <span className="text-[11px] sm:text-xs text-slate-400">Direct Phone</span>
+                <a href={`tel:${SITE_CONFIG.contact.phone.replace(/[^0-9+]/g, '')}`} className="text-xs sm:text-sm font-semibold text-white hover:text-emerald-300">
                   {SITE_CONFIG.contact.phone}
                 </a>
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
-              <div className="p-3 rounded-xl bg-amber-500/10 text-amber-400">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3.5 sm:gap-4">
+              <div className="p-2.5 sm:p-3 rounded-xl bg-amber-500/10 text-amber-400 shrink-0">
                 <Clock className="w-5 h-5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-xs text-slate-400">Response SLA Guarantee</span>
-                <span className="text-sm font-semibold text-white">Under 24 Hours</span>
+                <span className="text-[11px] sm:text-xs text-slate-400">Response SLA Guarantee</span>
+                <span className="text-xs sm:text-sm font-semibold text-white">Under 24 Hours</span>
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-4">
-              <div className="p-3 rounded-xl bg-sky-500/10 text-sky-400">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3.5 sm:gap-4">
+              <div className="p-2.5 sm:p-3 rounded-xl bg-sky-500/10 text-sky-400 shrink-0">
                 <MapPin className="w-5 h-5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-xs text-slate-400">Availability</span>
-                <span className="text-sm font-semibold text-white">{SITE_CONFIG.contact.address}</span>
+                <span className="text-[11px] sm:text-xs text-slate-400">Availability</span>
+                <span className="text-xs sm:text-sm font-semibold text-white">{SITE_CONFIG.contact.address}</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Right Column: Contact Form */}
-        <div className="lg:col-span-7 bg-slate-900 border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+        <div className="lg:col-span-7 bg-slate-900 border border-white/10 rounded-3xl p-4 sm:p-8 lg:p-10 shadow-2xl relative">
           {status === "success" ? (
             <div className="py-12 flex flex-col items-center justify-center text-center gap-4">
               <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">

@@ -13,24 +13,24 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-center pt-36 pb-20 px-4 sm:px-8 overflow-hidden bg-hero-pattern">
+    <section className="relative min-h-[90vh] flex flex-col justify-center pt-28 sm:pt-36 pb-16 sm:pb-20 px-3 sm:px-6 lg:px-8 overflow-hidden bg-hero-pattern">
       {/* Background Ambient Mesh Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[600px] h-[400px] bg-indigo-200/40 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/3 right-1/4 w-[500px] h-[350px] bg-sky-200/40 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[300px] sm:w-[600px] h-[200px] sm:h-[400px] bg-indigo-200/30 rounded-full blur-[100px] sm:blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-[250px] sm:w-[500px] h-[200px] sm:h-[350px] bg-sky-200/30 rounded-full blur-[90px] sm:blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
         
         {/* Left Column: Headline, Copy, CTAs, and Stats */}
-        <div className="lg:col-span-7 flex flex-col items-start gap-6 text-left">
+        <div className="lg:col-span-7 flex flex-col items-start gap-5 sm:gap-6 text-left">
           {/* Top Status Pill */}
           <motion.div
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-xs font-semibold text-indigo-600 shadow-sm"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-[11px] sm:text-xs font-semibold text-indigo-600 shadow-sm max-w-full truncate"
           >
-            <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse" />
-            <span>Available for selected Q3/Q4 projects</span>
+            <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse shrink-0" />
+            <span className="truncate">Available for selected Q3/Q4 projects</span>
           </motion.div>
 
           {/* Headline */}
@@ -38,7 +38,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.1] font-heading"
+            className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.15] font-heading"
           >
             We Build{" "}
             <span className="text-gradient-indigo">Digital</span>{" "}
@@ -51,7 +51,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-xl"
+            className="text-sm sm:text-base lg:text-lg text-slate-600 font-normal leading-relaxed max-w-xl"
           >
             We design and develop fast, scalable websites, SaaS platforms and custom web applications for startups and growing businesses.
           </motion.p>
@@ -61,23 +61,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap items-center gap-4 pt-2"
+            className="flex flex-row flex-wrap items-center gap-3 sm:gap-4 pt-1"
           >
             <button
               onClick={onOpenInquiry}
-              className="px-7 py-3.5 rounded-full bg-gradient-to-r from-indigo-600 to-sky-500 text-white text-sm font-bold shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:scale-[1.02] transition-all flex items-center gap-2"
+              className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:via-indigo-500 hover:to-cyan-400 text-white text-xs sm:text-sm font-semibold tracking-wide shadow-md shadow-indigo-500/25 hover:shadow-lg hover:shadow-indigo-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer border border-white/20"
             >
               <span>Start Your Project</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
 
             <a
               href="/portfolio"
-              className="px-6 py-3.5 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-bold shadow-sm hover:border-slate-300 hover:text-slate-900 transition-all flex items-center gap-2"
+              className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/90 backdrop-blur-md border border-slate-200/90 text-slate-700 hover:text-slate-900 hover:border-slate-300 text-xs sm:text-sm font-semibold shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
             >
               <span>View Our Work</span>
-              <div className="w-5 h-5 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center">
-                <Play className="w-2.5 h-2.5 fill-indigo-600 ml-0.5" />
+              <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 group-hover:bg-indigo-100 transition-colors">
+                <Play className="w-2 h-2 sm:w-2.5 sm:h-2.5 fill-indigo-600 ml-0.5" />
               </div>
             </a>
           </motion.div>
@@ -87,35 +87,35 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid grid-cols-3 gap-6 pt-6 border-t border-slate-200/70 w-full max-w-lg mt-2"
+            className="grid grid-cols-3 gap-2 sm:gap-6 pt-5 border-t border-slate-200/70 w-full max-w-lg mt-2"
           >
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
-                <Rocket className="w-5 h-5" />
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5 sm:gap-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+                <Rocket className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-base font-extrabold text-slate-900 font-heading">150+</span>
-                <span className="text-xs text-slate-500">Projects Delivered</span>
+                <span className="text-sm sm:text-base font-extrabold text-slate-900 font-heading">150+</span>
+                <span className="text-[10px] sm:text-xs text-slate-500">Projects Delivered</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
-                <Users className="w-5 h-5" />
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5 sm:gap-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
+                <Users className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-base font-extrabold text-slate-900 font-heading">75+</span>
-                <span className="text-xs text-slate-500">Happy Clients</span>
+                <span className="text-sm sm:text-base font-extrabold text-slate-900 font-heading">75+</span>
+                <span className="text-[10px] sm:text-xs text-slate-500">Happy Clients</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
-                <Star className="w-5 h-5" />
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5 sm:gap-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                <Star className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-base font-extrabold text-slate-900 font-heading">5+</span>
-                <span className="text-xs text-slate-500">Years Experience</span>
+                <span className="text-sm sm:text-base font-extrabold text-slate-900 font-heading">5+</span>
+                <span className="text-[10px] sm:text-xs text-slate-500">Years Exp.</span>
               </div>
             </div>
           </motion.div>
@@ -123,22 +123,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
 
         {/* Right Column: Founder Photo & Floating Cards (No text on image itself) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, x: 20 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="lg:col-span-5 relative flex items-center justify-center"
+          className="lg:col-span-5 relative flex items-center justify-center mt-4 lg:mt-0"
         >
           {/* Offset Decorative Blue Line Frame behind photo */}
-          <div className="absolute top-6 -right-3 bottom-[-12px] left-6 rounded-[36px] border-2 border-indigo-300/40 pointer-events-none z-0" />
+          <div className="absolute top-4 sm:top-6 -right-2 sm:-right-3 bottom-[-10px] left-4 sm:left-6 rounded-[28px] sm:rounded-[36px] border-2 border-indigo-300/40 pointer-events-none z-0" />
 
           {/* Photo Wrapper Container */}
-          <div className="relative z-10 w-full max-w-md">
+          <div className="relative z-10 w-full max-w-xs sm:max-w-md">
             {/* Pure Photo with smooth rounded corners and clean shadow */}
-            <div className="rounded-[32px] overflow-hidden shadow-2xl shadow-indigo-950/15 bg-white border border-slate-100">
+            <div className="rounded-[28px] sm:rounded-[32px] overflow-hidden shadow-2xl shadow-indigo-950/15 bg-white border border-slate-100">
               <img
                 src="/founder.jpg"
                 alt={SITE_CONFIG.founder.name}
-                className="w-full h-[460px] sm:h-[520px] object-cover object-top filter contrast-[1.02] brightness-[1.01]"
+                className="w-full h-[360px] xs:h-[420px] sm:h-[500px] object-cover object-top filter contrast-[1.02] brightness-[1.01]"
               />
             </div>
           </div>

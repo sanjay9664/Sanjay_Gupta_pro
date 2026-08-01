@@ -11,21 +11,21 @@ export const ProcessSection: React.FC = () => {
   const currentStep = PROCESS_STEPS_DATA[activeStep];
 
   return (
-    <section id="process" className="py-20 px-4 sm:px-8 max-w-7xl mx-auto border-t border-slate-200/80 relative">
-      <div className="text-center max-w-3xl mx-auto flex flex-col items-center gap-3 mb-12">
+    <section id="process" className="py-16 sm:py-20 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-200/80 relative">
+      <div className="text-center max-w-3xl mx-auto flex flex-col items-center gap-3 mb-8 sm:mb-12">
         <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-600">
           5-Phase Engineering Pipeline
         </span>
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-heading">
+        <h2 className="text-2xl xs:text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-heading">
           How We Build Your Application
         </h2>
-        <p className="text-slate-600 text-sm sm:text-base max-w-xl">
+        <p className="text-slate-600 text-xs sm:text-base max-w-xl">
           A disciplined, transparent development process ensuring zero technical debt, predictable timelines, and clean handovers.
         </p>
       </div>
 
       {/* Process Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+      <div className="flex items-center justify-start sm:justify-center gap-2 mb-8 sm:mb-10 overflow-x-auto no-scrollbar max-w-full pb-2">
         {PROCESS_STEPS_DATA.map((step, idx) => {
           const isActive = activeStep === idx;
           return (
@@ -33,7 +33,7 @@ export const ProcessSection: React.FC = () => {
               key={step.number}
               onClick={() => setActiveStep(idx)}
               className={cn(
-                "px-5 py-2.5 rounded-full text-xs font-semibold transition-all border select-none flex items-center gap-2",
+                "px-4 sm:px-5 py-2.5 rounded-full text-xs font-semibold transition-all border select-none flex items-center gap-2 shrink-0 min-h-[44px]",
                 isActive
                   ? "bg-gradient-to-r from-indigo-600 to-sky-500 text-white border-transparent shadow-lg shadow-indigo-500/20"
                   : "bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300"
@@ -52,7 +52,7 @@ export const ProcessSection: React.FC = () => {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/80 shadow-xl shadow-slate-200/40 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+        className="p-5 sm:p-8 lg:p-10 rounded-3xl bg-white border border-slate-200/80 shadow-xl shadow-slate-200/40 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center"
       >
         <div className="lg:col-span-7 flex flex-col gap-4">
           <div className="flex items-center gap-2">
