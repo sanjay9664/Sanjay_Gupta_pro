@@ -14,6 +14,8 @@ export async function POST(req: Request) {
 
     const recipientEmail = "guptaji30749@gmail.com";
 
+    const origin = req.headers.get("origin") || req.headers.get("referer") || "https://sanjaywebagency.com";
+
     // FormSubmit API (Branded for Sanjay Web Agency with Blue Table UI)
     const fsRes = await fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
       method: "POST",
@@ -21,8 +23,8 @@ export async function POST(req: Request) {
         "Content-Type": "application/json",
         "Accept": "application/json",
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Origin": "https://sanjaywebagency.com",
-        "Referer": "https://sanjaywebagency.com/",
+        "Origin": origin,
+        "Referer": origin,
       },
       body: JSON.stringify({
         _subject: `🔥 [Sanjay Web Agency] New Inquiry from ${name} (${projectType || 'Custom Project'})`,
