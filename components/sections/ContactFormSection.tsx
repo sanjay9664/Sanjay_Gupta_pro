@@ -6,6 +6,7 @@ import { Send, CheckCircle2, AlertTriangle, ShieldCheck, Mail, Phone, MapPin, Cl
 import { Button } from "@/components/ui/Button";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
+import { generateFormattedMessage } from "@/lib/email-template";
 
 export const ContactFormSection: React.FC = () => {
   const [formData, setFormData] = useState({

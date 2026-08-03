@@ -5,6 +5,8 @@ import { SITE_CONFIG } from "@/lib/site-config";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Mail, Phone, Clock, MapPin, Send, CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 
+import { generateFormattedMessage } from "@/lib/email-template";
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",

@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Check, ArrowRight, ArrowLeft, Sparkles, Send, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { SITE_CONFIG } from "@/lib/site-config";
+import { generateFormattedMessage } from "@/lib/email-template";
 import { cn } from "@/lib/utils";
 
 interface ProjectInquiryModalProps {
@@ -108,6 +110,7 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
       });
 
       const data = await res.json();
+
       if (data.success) {
         setIsSubmitted(true);
       } else {
