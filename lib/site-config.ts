@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   tagline: "Engineering Digital Experiences Built to Perform.",
   shortDescription: "We design and develop fast, scalable websites, SaaS platforms and custom web applications for startups and growing businesses.",
   longDescription: "Sanjay Web Agency is a full-stack web development studio specializing in Next.js, React, Node.js, and scalable web applications for startups and businesses.",
-  domain: "https://agency-website-demo.vercel.app",
+  domain: "https://sanjay.nirogplus.com",
   founder: {
     name: "Sanjay Gupta",
     role: "Lead Full-Stack Developer & Founder",
@@ -17,18 +17,14 @@ export const SITE_CONFIG = {
     availability: "Available for new projects",
   },
   social: {
-    github: "https://github.com",
-    twitter: "https://x.com",
-    linkedin: "https://linkedin.com",
-    dribbble: "https://dribbble.com",
+    github: "https://github.com/sanjay9664?tab=repositories",
+    linkedin: "https://www.linkedin.com/in/sanjay-gupta-53b677224/",
   },
   navigation: [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Work", href: "/portfolio" },
-    { label: "Process", href: "/#process" },
     { label: "About", href: "/about" },
-    { label: "Insights", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ],
   servicesSummary: [

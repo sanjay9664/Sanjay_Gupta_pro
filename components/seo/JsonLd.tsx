@@ -24,7 +24,6 @@ export const JsonLd: React.FC<JsonLdProps> = ({ type = "Organization", data }) =
       },
       "sameAs": [
         SITE_CONFIG.social.github,
-        SITE_CONFIG.social.twitter,
         SITE_CONFIG.social.linkedin
       ],
       "knowsAbout": SITE_CONFIG.techStack,

@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import BlogPage from "@/app/blog/page";
 
 export default function InsightsPage() {
-  redirect("/blog");
+  return <BlogPage />;
 }

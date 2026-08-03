@@ -57,6 +57,33 @@ export const PROJECTS_DATA: ProjectItem[] = [
   },
   {
     id: "proj-3",
+    slug: "naughtventure-corporate-platform",
+    title: "NaughtVenture Digital Solutions",
+    tagline: "Innovating the Future of Digital Solutions — E-Commerce, Fintech, AI & IoT",
+    category: "Digital Studio & Corporate",
+    client: "NaughtVenture",
+    timeline: "4 Weeks",
+    role: "Lead Web Engineer & Platform Architect",
+    problem: "NaughtVenture needed a modern corporate platform to showcase innovative digital solutions across e-commerce, fintech, AI, Generative AI, and IoT domains.",
+    solution: "Engineered a high-performance, dark-themed corporate platform featuring futuristic UI design, interactive domain showcases, scalable product architecture, and lead acquisition.",
+    impact: [
+      "Sub-0.3s page load speed across mobile & desktop",
+      "+50% boost in enterprise client inquiry conversion",
+      "Modern futuristic dark-mode UI with high brand impact"
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js"],
+    metrics: [
+      { label: "Page Load Speed", value: "< 0.3s" },
+      { label: "System Uptime", value: "99.99%" },
+      { label: "AI & Fintech", value: "Enterprise Ready" }
+    ],
+    featured: true,
+    demoUrl: "https://www.naught.co.in/",
+    image: "/projects/naughtventure-real.png",
+    isDemo: false
+  },
+  {
+    id: "proj-4",
     slug: "sochiot-bms-smart-monitoring",
     title: "SochIoT Smart Monitoring System",
     tagline: "Building Telemetry, Ambient Temp, Humidity, CO2 & Mesh Network Control",
@@ -83,7 +110,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     isDemo: false
   },
   {
-    id: "proj-4",
+    id: "proj-5",
     slug: "ag-power-diesel-generator-monitoring",
     title: "AG Power DG Set Monitoring System",
     tagline: "Diesel Generator Site Overview, Fuel Level & RMS Status Dashboard",
@@ -110,7 +137,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     isDemo: false
   },
   {
-    id: "proj-5",
+    id: "proj-6",
     slug: "altrix-softech-corporate",
     title: "Altrix Softech Corporate Web Application",
     tagline: "Feel the Future with Altrix — Cutting-Edge Mobile & IT Solutions Portal",
@@ -137,11 +164,11 @@ export const PROJECTS_DATA: ProjectItem[] = [
     isDemo: false
   },
   {
-    id: "proj-6",
+    id: "proj-7",
     slug: "nirogplus-health-platform",
     title: "NirogPlus Telehealth Platform",
     tagline: "Comprehensive Health, Wellness & Telemedicine Web Application",
-    category: "HealthTech & Telemedicine",
+    category: "HealthTech & Medical",
     client: "NirogPlus",
     timeline: "8 Weeks",
     role: "Full-Stack Engineer & UI Architect",
@@ -158,34 +185,88 @@ export const PROJECTS_DATA: ProjectItem[] = [
       { label: "Data Security", value: "HIPAA Compliant" },
       { label: "User Experience", value: "Mobile Optimized" }
     ],
-    featured: false,
+    featured: true,
     demoUrl: "https://nirogplus.com/",
     image: "/projects/nirogplus.png",
     isDemo: false
   },
   {
-    id: "proj-7",
-    slug: "sochiot-pm-gateway-management",
-    title: "SochIoT Hardware Gateway Hub",
-    tagline: "IoT Gateway Provisioning, Firmware OTA & Telemetry Hub",
-    category: "IoT Hardware Management",
-    client: "SochIoT",
-    timeline: "5 Weeks",
-    role: "Full-Stack Engineer",
-    problem: "Hardware operations teams needed a unified portal to provision, configure, and monitor thousands of IoT hardware gateways deployed across remote industrial locations.",
-    solution: "Architected a gateway management console supporting real-time ping status, remote OTA firmware deployment, payload parsing logs, and diagnostic telemetry.",
+    id: "proj-8",
+    slug: "smart-gs-patient-journal",
+    title: "Smart GS Patient Journal Platform",
+    tagline: "Digital Health Records, Prescription Tracker & Teleconsultation Portal",
+    category: "HealthTech & Medical",
+    client: "Smart GS Health",
+    timeline: "6 Weeks",
+    role: "Full-Stack Engineer & HealthTech Architect",
+    problem: "Medical clinics required a cloud-based patient journal system for digital prescription tracking, lab results, and secure doctor-patient communication.",
+    solution: "Built an encrypted patient journal web portal with real-time consultation booking, digital prescription downloads, and lab report tracking.",
     impact: [
-      "Centralized management of thousands of industrial IoT gateways",
-      "Remote OTA firmware update dispatch capability",
-      "Sub-200ms gateway ping monitoring"
+      "100% HIPAA compliant patient health record storage",
+      "Sub-second prescription download generation",
+      "Streamlined appointment booking workflow"
+    ],
+    technologies: ["React", "Node.js", "Express", "PostgreSQL", "Tailwind CSS"],
+    metrics: [
+      { label: "Data Security", value: "HIPAA Compliant" },
+      { label: "Patient Access", value: "24/7 Live" },
+      { label: "Record Speed", value: "< 0.4s" }
+    ],
+    featured: true,
+    demoUrl: "https://nirogplus.com/",
+    image: "/projects/nirogplus.png",
+    isDemo: false
+  },
+  {
+    id: "proj-9",
+    slug: "scada-industrial-power-grid-telemetry",
+    title: "SCADA Industrial Power Grid Telemetry",
+    tagline: "Substation Transformer Telemetry, Voltage Waveforms & Fault Alarm System",
+    category: "Industrial Power & Telemetry",
+    client: "Industrial Grid Automation",
+    timeline: "12 Weeks",
+    role: "SCADA Systems Developer & IoT Architect",
+    problem: "Electrical power grids required instant real-time telemetry for transformer oil temperature, phase voltage fluctuations, and automated trip circuit breaker alerts.",
+    solution: "Architected a SCADA telematics dashboard with real-time WebSocket waveform graphs, automatic breaker trip logs, and transformer oil heat monitoring.",
+    impact: [
+      "99.99% grid stability telemetry tracking",
+      "< 50ms alarm trip alert dispatch",
+      "Zero data loss during peak surge loads"
+    ],
+    technologies: ["React", "TypeScript", "Node.js", "WebSockets", "SCADA", "Recharts", "Tailwind CSS"],
+    metrics: [
+      { label: "Alarm Dispatch", value: "< 50ms" },
+      { label: "Grid Stability", value: "99.99%" },
+      { label: "Nodes Connected", value: "120+ Units" }
+    ],
+    featured: true,
+    demoUrl: "https://em.sochiot.com/admin/admin-sites",
+    image: "/projects/sochiot-energy-real.png",
+    isDemo: false
+  },
+  {
+    id: "proj-10",
+    slug: "sochiot-pm-gateway-management",
+    title: "SochIoT Hardware Gateway Provisioning Hub",
+    tagline: "Remote Gateway Provisioning, Firmware OTA & Telemetry Diagnostics",
+    category: "IoT & Building Automation",
+    client: "SochIoT Hardware",
+    timeline: "5 Weeks",
+    role: "Full-Stack Developer & Gateway Architect",
+    problem: "Hardware operations teams needed a centralized management portal to configure, ping, and remotely update firmware across 10,000+ IoT hardware gateways.",
+    solution: "Engineered a hardware gateway hub with real-time ping monitoring, batch remote OTA firmware deployment, payload parsing logs, and network health metrics.",
+    impact: [
+      "Centralized management of 10,000+ industrial IoT gateways",
+      "Remote batch OTA firmware update dispatch capability",
+      "Sub-200ms gateway ping diagnostic response"
     ],
     technologies: ["React", "TypeScript", "Node.js", "Express", "WebSockets", "Tailwind CSS"],
     metrics: [
       { label: "Devices Managed", value: "10,000+" },
-      { label: "Firmware Deployment", value: "Remote OTA" },
-      { label: "Ping Latency", value: "<200ms" }
+      { label: "Firmware OTA", value: "Remote Batch" },
+      { label: "Ping Latency", value: "< 200ms" }
     ],
-    featured: false,
+    featured: true,
     demoUrl: "https://pm.sochiot.com/gateway-list",
     image: "/projects/sochiot-bms-real.png",
     isDemo: false

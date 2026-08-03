@@ -7,7 +7,6 @@ import { StatsSection } from "@/components/sections/StatsSection";
 import { TechMarquee } from "@/components/sections/TechMarquee";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { WhyUsSection } from "@/components/sections/WhyUsSection";
-import { ProcessSection } from "@/components/sections/ProcessSection";
 import { PerformanceBenchmarkSection } from "@/components/sections/PerformanceBenchmarkSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
@@ -29,7 +28,6 @@ export default function HomePage() {
         <TechMarquee />
         <ServicesSection onOpenInquiry={handleOpenInquiry} />
         <WhyUsSection />
-        <ProcessSection />
         <PerformanceBenchmarkSection />
         <AboutSection onOpenInquiry={handleOpenInquiry} />
         <TestimonialsSection />
