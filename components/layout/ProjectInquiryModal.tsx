@@ -95,28 +95,75 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
     setErrorMsg("");
 
     try {
-      const res = await fetch("/api/contact", {
+      const nowTime = new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+
+      const res = await fetch("https://formsubmit.co/ajax/guptaji30749@gmail.com", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
-          name,
-          email,
-          company,
-          projectType: selectedServices.join(", ") || "Custom Project",
-          budget: selectedBudget,
-          timeline: selectedTimeline,
-          description: description || "Inquiry submitted via interactive modal.",
+          _subject: `🔥 [Sanjay Web Agency] Modal Inquiry from ${name} at ${nowTime}`,
+          _template: "table",
+          _captcha: "false",
+          _replyto: email,
+          "🚀 Agency": "Sanjay Web Agency",
+          "👤 Full Name": name,
+          "✉️ Client Email": email,
+          "🏢 Company / Org": company || "Not Provided",
+          "📋 Selected Services": selectedServices.join(", ") || "Custom Project",
+          "💰 Estimated Budget": selectedBudget || "Not Specified",
+          "⏱️ Target Timeline": selectedTimeline || "Not Specified",
+          "💬 Project Details": description || "Inquiry submitted via interactive modal.",
         }),
       });
 
       const data = await res.json();
-
-      if (data.success) {
+      if (res.ok && (data.success === "true" || data.success === true)) {
         setIsSubmitted(true);
       } else {
-        setErrorMsg(data.error || "Submission failed. Please try again.");
+        const fallbackRes = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name,
+            email,
+            company,
+            projectType: selectedServices.join(", ") || "Custom Project",
+            budget: selectedBudget,
+            timeline: selectedTimeline,
+            description: description || "Inquiry submitted via interactive modal.",
+          }),
+        });
+        const fallbackData = await fallbackRes.json();
+        if (fallbackData.success) {
+          setIsSubmitted(true);
+        } else {
+          setErrorMsg("Failed to submit. Please try again.");
+        }
       }
     } catch (err: any) {
+      try {
+        const fallbackRes = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name,
+            email,
+            company,
+            projectType: selectedServices.join(", ") || "Custom Project",
+            budget: selectedBudget,
+            timeline: selectedTimeline,
+            description: description || "Inquiry submitted via interactive modal.",
+          }),
+        });
+        const fallbackData = await fallbackRes.json();
+        if (fallbackData.success) {
+          setIsSubmitted(true);
+          return;
+        }
+      } catch (fErr) {}
       setErrorMsg("Network error. Please try again later.");
     } finally {
       setIsSubmitting(false);

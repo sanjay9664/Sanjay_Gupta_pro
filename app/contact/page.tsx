@@ -38,20 +38,58 @@ export default function ContactPage() {
     setErrorMsg("");
 
     try {
-      const res = await fetch("/api/contact", {
+      const nowTime = new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+      
+      const res = await fetch("https://formsubmit.co/ajax/guptaji30749@gmail.com", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `🔥 [Sanjay Web Agency] New Inquiry from ${formData.name} at ${nowTime}`,
+          _template: "table",
+          _captcha: "false",
+          _replyto: formData.email,
+          "🚀 Agency": "Sanjay Web Agency",
+          "👤 Full Name": formData.name,
+          "✉️ Client Email": formData.email,
+          "📞 Phone Number": formData.phone || "Not Provided",
+          "🏢 Company / Org": formData.company || "Not Provided",
+          "📋 Inquiry Type": formData.projectType || "Custom Website",
+          "💬 Message Details": formData.description,
+        }),
       });
 
       const data = await res.json();
-
-      if (data.success) {
+      if (res.ok && (data.success === "true" || data.success === true)) {
         setSubmitted(true);
       } else {
-        setErrorMsg(data.error || "Failed to submit. Please try again.");
+        const fallbackRes = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+        const fallbackData = await fallbackRes.json();
+        if (fallbackData.success) {
+          setSubmitted(true);
+        } else {
+          setErrorMsg("Failed to submit. Please try again.");
+        }
       }
     } catch (err: any) {
+      try {
+        const fallbackRes = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+        const fallbackData = await fallbackRes.json();
+        if (fallbackData.success) {
+          setSubmitted(true);
+          return;
+        }
+      } catch (fErr) {}
       setErrorMsg("Network error. Please try again later.");
     } finally {
       setIsSubmitting(false);

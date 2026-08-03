@@ -48,20 +48,60 @@ export const ContactFormSection: React.FC = () => {
     setErrorMsg("");
 
     try {
-      const res = await fetch("/api/contact", {
+      const nowTime = new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+      
+      const res = await fetch("https://formsubmit.co/ajax/guptaji30749@gmail.com", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `🔥 [Sanjay Web Agency] New Inquiry from ${formData.name} at ${nowTime}`,
+          _template: "table",
+          _captcha: "false",
+          _replyto: formData.email,
+          "🚀 Agency": "Sanjay Web Agency",
+          "👤 Full Name": formData.name,
+          "✉️ Client Email": formData.email,
+          "🏢 Company / Org": formData.company || "Not Provided",
+          "📋 Inquiry Type": formData.projectType || "Custom Website",
+          "💰 Estimated Budget": formData.budget || "Not Specified",
+          "⏱️ Target Timeline": formData.timeline || "Not Specified",
+          "💬 Message Details": formData.description,
+        }),
       });
 
       const data = await res.json();
-      if (data.success) {
+      if (res.ok && (data.success === "true" || data.success === true)) {
         setStatus("success");
       } else {
-        setErrorMsg(data.error || "Failed to submit. Please try again.");
-        setStatus("error");
+        const fallbackRes = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+        const fallbackData = await fallbackRes.json();
+        if (fallbackData.success) {
+          setStatus("success");
+        } else {
+          setErrorMsg("Failed to submit. Please try again.");
+          setStatus("error");
+        }
       }
     } catch (err: any) {
+      try {
+        const fallbackRes = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+        const fallbackData = await fallbackRes.json();
+        if (fallbackData.success) {
+          setStatus("success");
+          return;
+        }
+      } catch (fErr) {}
       setErrorMsg("Network error. Please try again later.");
       setStatus("error");
     }
