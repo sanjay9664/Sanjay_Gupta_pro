@@ -14,8 +14,13 @@ export async function POST(req: Request) {
 
     const recipientEmail = "guptaji30749@gmail.com";
     const origin = req.headers.get("origin") || req.headers.get("referer") || "https://sanjay.nirogplus.com";
+    const nowIST = new Date().toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      dateStyle: "short",
+      timeStyle: "medium",
+    });
 
-    // FormSubmit Engine (Exact Blue Table UI)
+    // FormSubmit Engine (Unique Subject timestamp prevents rate-limiting for repeat submissions)
     const fsRes = await fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
       method: "POST",
       headers: {
@@ -26,7 +31,7 @@ export async function POST(req: Request) {
         "Referer": origin,
       },
       body: JSON.stringify({
-        _subject: `🔥 [Sanjay Web Agency] New Inquiry from ${name} (${projectType || 'Custom Project'})`,
+        _subject: `🔥 [Sanjay Web Agency] New Inquiry from ${name} at ${nowIST}`,
         _template: "table",
         _captcha: "false",
         _replyto: email,
@@ -38,6 +43,7 @@ export async function POST(req: Request) {
         "📋 Inquiry Type": projectType || "Custom Website",
         "💰 Estimated Budget": budget || "Not Specified",
         "⏱️ Target Timeline": timeline || "Not Specified",
+        "⏰ Submitted At (IST)": nowIST,
         "💬 Message Details": description,
       }),
     });
