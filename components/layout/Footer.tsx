@@ -167,17 +167,31 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Tech Badges */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center sm:text-left">
-          <div className="flex flex-col sm:flex-row items-center gap-2">
-            <span>© {new Date().getFullYear()} <strong className="text-slate-300">{SITE_CONFIG.brandName}</strong>. All rights reserved.</span>
+        {/* Bottom Bar: Copyright, Legal Links & Tech Badges */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center md:text-left border-t border-slate-900 mt-4">
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            <span>© {new Date().getFullYear()} <strong className="text-white">{SITE_CONFIG.brandName}</strong>. All rights reserved.</span>
+          </div>
+
+          {/* Legal Links */}
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-slate-400">
+            <Link href="/privacy-policy" className="hover:text-indigo-300 transition-colors">
+              Privacy Policy
+            </Link>
+            <span className="text-slate-700">•</span>
+            <Link href="/website-terms" className="hover:text-indigo-300 transition-colors">
+              Website Terms
+            </Link>
+            <span className="text-slate-700">•</span>
+            <Link href="/terms-of-use" className="hover:text-indigo-300 transition-colors">
+              Terms of Use
+            </Link>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-2">
-            <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-400">Next.js 15</span>
+            <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-400">Next.js 16</span>
             <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-400">TypeScript</span>
             <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-400">Tailwind CSS</span>
-            <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-400">Vercel</span>
           </div>
         </div>
 

@@ -22,16 +22,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
         
         {/* Left Column: Headline, Copy, CTAs, and Stats */}
         <div className="lg:col-span-7 flex flex-col items-start gap-5 sm:gap-6 text-left">
-          {/* Top Status Pill */}
-          <motion.div
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-[11px] sm:text-xs font-semibold text-indigo-600 shadow-sm max-w-full truncate"
-          >
-            <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse shrink-0" />
-            <span className="truncate">Available for selected Q3/Q4 projects</span>
-          </motion.div>
 
           {/* Headline */}
           <motion.h1
@@ -80,44 +70,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
                 <Play className="w-2 h-2 sm:w-2.5 sm:h-2.5 fill-indigo-600 ml-0.5" />
               </div>
             </a>
-          </motion.div>
-
-          {/* Bottom Stats Strip */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid grid-cols-3 gap-2 sm:gap-6 pt-5 border-t border-slate-200/70 w-full max-w-lg mt-2"
-          >
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5 sm:gap-3">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
-                <Rocket className="w-4 h-4 sm:w-5 sm:h-5" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm sm:text-base font-extrabold text-slate-900 font-heading">150+</span>
-                <span className="text-[10px] sm:text-xs text-slate-500">Projects Delivered</span>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5 sm:gap-3">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
-                <Users className="w-4 h-4 sm:w-5 sm:h-5" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm sm:text-base font-extrabold text-slate-900 font-heading">75+</span>
-                <span className="text-[10px] sm:text-xs text-slate-500">Happy Clients</span>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5 sm:gap-3">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
-                <Star className="w-4 h-4 sm:w-5 sm:h-5" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm sm:text-base font-extrabold text-slate-900 font-heading">5+</span>
-                <span className="text-[10px] sm:text-xs text-slate-500">Years Exp.</span>
-              </div>
-            </div>
           </motion.div>
         </div>
 

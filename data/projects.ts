@@ -191,33 +191,6 @@ export const PROJECTS_DATA: ProjectItem[] = [
     isDemo: false
   },
   {
-    id: "proj-8",
-    slug: "smart-gs-patient-journal",
-    title: "Smart GS Patient Journal Platform",
-    tagline: "Digital Health Records, Prescription Tracker & Teleconsultation Portal",
-    category: "HealthTech & Medical",
-    client: "Smart GS Health",
-    timeline: "6 Weeks",
-    role: "Full-Stack Engineer & HealthTech Architect",
-    problem: "Medical clinics required a cloud-based patient journal system for digital prescription tracking, lab results, and secure doctor-patient communication.",
-    solution: "Built an encrypted patient journal web portal with real-time consultation booking, digital prescription downloads, and lab report tracking.",
-    impact: [
-      "100% HIPAA compliant patient health record storage",
-      "Sub-second prescription download generation",
-      "Streamlined appointment booking workflow"
-    ],
-    technologies: ["React", "Node.js", "Express", "PostgreSQL", "Tailwind CSS"],
-    metrics: [
-      { label: "Data Security", value: "HIPAA Compliant" },
-      { label: "Patient Access", value: "24/7 Live" },
-      { label: "Record Speed", value: "< 0.4s" }
-    ],
-    featured: true,
-    demoUrl: "https://nirogplus.com/",
-    image: "/projects/nirogplus.png",
-    isDemo: false
-  },
-  {
     id: "proj-9",
     slug: "scada-industrial-power-grid-telemetry",
     title: "SCADA Industrial Power Grid Telemetry",
@@ -300,5 +273,32 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     content: "Our generator telemetry dashboard connects 15+ bank sites with live fuel theft detection and RMS status. Outstanding full-stack development quality and post-launch support.",
     avatarUrl: "/avatars/client3.png",
     projectSlug: "ag-power-diesel-generator-monitoring"
+  },
+  {
+    id: "t-4",
+    name: "Product Lead",
+    role: "VP Product",
+    company: "Altrix Softech",
+    content: "Working with Sanjay on our corporate web application was seamless. His mastery over Next.js, Framer Motion, and responsive UI design gave us an elite digital market presence.",
+    avatarUrl: "/avatars/client4.png",
+    projectSlug: "altrix-softech-corporate"
+  },
+  {
+    id: "t-5",
+    name: "Head of Product",
+    role: "Product Lead",
+    company: "NaughtVenture Digital",
+    content: "Sanjay's full-stack engineering expertise helped us ship our web platform ahead of deadline. Clean TypeScript code, zero tech debt, and incredible attention to detail.",
+    avatarUrl: "/avatars/client5.png",
+    projectSlug: "naughtventure-digital"
+  },
+  {
+    id: "t-6",
+    name: "CTO & Co-Founder",
+    role: "Tech Co-Founder",
+    company: "Smart GS Health",
+    content: "Sub-second page load times, modular architecture, and flawless mobile UX. Sanjay is our go-to full-stack architect for complex enterprise web applications.",
+    avatarUrl: "/avatars/client6.png",
+    projectSlug: "smart-gs-health"
   }
 ];
