@@ -21,14 +21,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
         
         {/* Left Column: Headline, Copy, CTAs, and Stats */}
-        <div className="lg:col-span-7 flex flex-col items-start gap-5 sm:gap-6 text-left">
+        <div className="lg:col-span-7 flex flex-col items-center sm:items-start gap-5 sm:gap-6 text-center sm:text-left">
 
           {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.15] font-heading"
+            className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.15] font-heading text-center sm:text-left"
           >
             We Build{" "}
             <span className="text-gradient-indigo">Digital</span>{" "}
@@ -41,7 +41,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm sm:text-base lg:text-lg text-slate-600 font-normal leading-relaxed max-w-xl"
+            className="text-sm sm:text-base lg:text-lg text-slate-600 font-normal leading-relaxed max-w-xl text-center sm:text-left"
           >
             We design and develop fast, scalable websites, SaaS platforms and custom web applications for startups and growing businesses.
           </motion.p>
@@ -51,7 +51,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenInquiry }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-row flex-wrap items-center gap-3 sm:gap-4 pt-1"
+            className="flex flex-row flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4 pt-1"
           >
             <button
               onClick={onOpenInquiry}

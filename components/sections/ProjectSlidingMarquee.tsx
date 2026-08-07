@@ -63,7 +63,7 @@ export const ProjectSlidingMarquee: React.FC<ProjectSlidingMarqueeProps> = ({ on
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
           {/* Left Column: Headlines, Description, Buttons & Mini Stats */}
-          <div className="lg:col-span-5 flex flex-col items-start gap-5 text-left">
+          <div className="lg:col-span-5 flex flex-col items-center sm:items-start gap-5 text-center sm:text-left">
             
             {/* Main Headline */}
             <motion.h2
@@ -71,7 +71,7 @@ export const ProjectSlidingMarquee: React.FC<ProjectSlidingMarqueeProps> = ({ on
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-3xl sm:text-5xl font-extrabold tracking-tight font-heading text-slate-900 leading-[1.15]"
+              className="text-3xl sm:text-5xl font-extrabold tracking-tight font-heading text-slate-900 leading-[1.15] text-center sm:text-left"
             >
               Explore Our <span className="text-gradient-indigo">Live Web Apps</span> & Systems
             </motion.h2>
@@ -82,7 +82,7 @@ export const ProjectSlidingMarquee: React.FC<ProjectSlidingMarqueeProps> = ({ on
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-md"
+              className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-md text-center sm:text-left"
             >
               Compact portfolio showcase of recent enterprise SaaS, telemetry portals, and web platforms built for high performance.
             </motion.p>

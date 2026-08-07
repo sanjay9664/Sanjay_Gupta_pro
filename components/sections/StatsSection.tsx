@@ -57,9 +57,9 @@ export const StatsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="p-4 sm:p-6 rounded-3xl bg-white border border-slate-200/80 flex flex-col gap-2 shadow-lg shadow-slate-200/40 hover:border-indigo-300 transition-all"
+              className="p-4 sm:p-6 rounded-3xl bg-white border border-slate-200/80 flex flex-col items-center xs:items-start text-center xs:text-left gap-2 shadow-lg shadow-slate-200/40 hover:border-indigo-300 transition-all"
             >
-              <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center justify-between w-full gap-2">
                 <span className="text-[11px] sm:text-xs font-mono font-bold uppercase text-slate-500 truncate">
                   {stat.label}
                 </span>
@@ -68,7 +68,7 @@ export const StatsSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="text-2xl sm:text-4xl font-extrabold font-heading text-slate-900 pt-1">
+              <div className="text-2xl sm:text-4xl font-extrabold font-heading text-slate-900 pt-1 text-center xs:text-left">
                 {stat.value === 99.9 ? (
                   <span>99.9%</span>
                 ) : (
@@ -76,7 +76,7 @@ export const StatsSection: React.FC = () => {
                 )}
               </div>
 
-              <p className="text-xs text-slate-500 leading-tight pt-1 font-medium">
+              <p className="text-xs text-slate-500 leading-tight pt-1 font-medium text-center xs:text-left">
                 {stat.description}
               </p>
             </motion.div>

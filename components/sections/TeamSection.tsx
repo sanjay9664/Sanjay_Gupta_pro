@@ -73,7 +73,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenInquiry }) => {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[150px] pointer-events-none" />
 
       {/* Header Info */}
-      <div className="text-left max-w-3xl mb-12 sm:mb-16">
+      <div className="text-center sm:text-left flex flex-col items-center sm:items-start max-w-3xl mb-12 sm:mb-16 mx-auto sm:mx-0">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenInquiry }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-heading mt-4 leading-tight"
+          className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-heading mt-4 leading-tight text-center sm:text-left"
         >
           Driven by Engineers & Designers Who Care About <span className="text-gradient-indigo">Excellence</span>
         </motion.h2>
@@ -99,7 +99,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenInquiry }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-4 text-slate-600 text-sm sm:text-base lg:text-lg max-w-2xl leading-relaxed"
+          className="mt-4 text-slate-600 text-sm sm:text-base lg:text-lg max-w-2xl leading-relaxed text-center sm:text-left"
         >
           When you partner with us, you work directly with experienced senior engineers and designers — no middle management, zero fluff.
         </motion.p>

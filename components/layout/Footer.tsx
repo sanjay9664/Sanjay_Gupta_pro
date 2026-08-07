@@ -8,9 +8,7 @@ import {
   ArrowUpRight, 
   Phone, 
   Mail, 
-  Sparkles, 
-  ShieldCheck, 
-  Globe 
+  ShieldCheck 
 } from "lucide-react";
 
 interface FooterProps {
@@ -28,14 +26,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         
-
-
         {/* Footer Navigation Columns */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 sm:gap-12 pb-12 sm:pb-16 border-b border-slate-800/80">
           
           {/* Column 1: Brand & Overview (Col 5) */}
-          <div className="md:col-span-5 flex flex-col gap-5">
-            <Link href="/" className="flex items-center gap-3 shrink-0 w-fit group">
+          <div className="md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left gap-5">
+            <Link href="/" className="flex items-center gap-3 shrink-0 group">
               <div className="relative w-12 h-12 rounded-2xl overflow-hidden bg-white p-1 border border-slate-700/80 shrink-0 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
                 <Image
                   src="/projects/fev-emblem-max.png"
@@ -45,7 +41,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
                   className="object-contain w-full h-full rounded-xl"
                 />
               </div>
-              <div className="flex flex-col min-w-0">
+              <div className="flex flex-col min-w-0 text-left">
                 <span className="text-lg sm:text-xl font-black text-white font-heading tracking-tight group-hover:text-indigo-300 transition-colors">
                   {SITE_CONFIG.brandName}
                 </span>
@@ -60,7 +56,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
             </p>
 
             {/* Live Availability Status */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-xs w-fit shadow-inner">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/90 border border-slate-800 text-xs shadow-inner">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
@@ -69,14 +65,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
               <span className="text-emerald-400 font-mono font-semibold">{SITE_CONFIG.contact.availability}</span>
             </div>
 
-            {/* Social Links (Clean SVG Icons) */}
-            <div className="flex items-center gap-3 pt-2">
+            {/* Social Links */}
+            <div className="flex items-center justify-center md:justify-start gap-3 pt-1">
               <a
                 href={SITE_CONFIG.social.github}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
-                className="w-9 h-9 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-800 hover:border-slate-700 transition-all shadow-sm"
+                className="w-10 h-10 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-800 hover:border-slate-700 transition-all shadow-sm"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
@@ -87,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
-                className="w-9 h-9 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-800 hover:border-slate-700 transition-all shadow-sm"
+                className="w-10 h-10 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-800 hover:border-slate-700 transition-all shadow-sm"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -97,16 +93,16 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
           </div>
 
           {/* Column 2: Quick Links (Col 3) */}
-          <div className="md:col-span-3 flex flex-col gap-4">
+          <div className="md:col-span-3 flex flex-col items-center md:items-start text-center md:text-left gap-4">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400/90">
               NAVIGATION
             </span>
-            <ul className="flex flex-col gap-2 text-xs sm:text-sm">
+            <ul className="flex flex-col items-center md:items-start gap-2.5 text-xs sm:text-sm">
               {SITE_CONFIG.navigation.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="group text-slate-400 hover:text-white transition-colors py-1 inline-flex items-center gap-1.5"
+                    className="group text-slate-400 hover:text-white transition-colors py-1 inline-flex items-center gap-2"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-slate-700 group-hover:bg-indigo-400 transition-colors" />
                     <span className="group-hover:translate-x-1 transition-transform duration-200">{item.label}</span>
@@ -117,21 +113,21 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
           </div>
 
           {/* Column 3: Contact & Support (Col 4) */}
-          <div className="md:col-span-4 flex flex-col gap-4">
+          <div className="md:col-span-4 flex flex-col items-center md:items-start text-center md:text-left gap-4">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400/90">
               DIRECT INQUIRIES
             </span>
             
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3.5 w-full max-w-md">
               <a
                 href={`mailto:${SITE_CONFIG.contact.email}`}
-                className="group p-3.5 rounded-2xl bg-slate-900/70 border border-slate-800/80 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all flex items-center justify-between"
+                className="group p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 hover:bg-slate-900 transition-all flex items-center justify-between"
               >
-                <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 shrink-0">
-                    <Mail className="w-4.5 h-4.5" />
+                <div className="flex items-center gap-3.5 min-w-0">
+                  <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 shrink-0">
+                    <Mail className="w-5 h-5" />
                   </div>
-                  <div className="flex flex-col min-w-0">
+                  <div className="flex flex-col min-w-0 text-left">
                     <span className="text-[10px] font-mono text-slate-400 uppercase font-semibold">Email Us Direct</span>
                     <span className="text-xs sm:text-sm font-bold text-white group-hover:text-indigo-300 transition-colors truncate">
                       {SITE_CONFIG.contact.email}
@@ -143,13 +139,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
 
               <a
                 href={`tel:${SITE_CONFIG.contact.phone.replace(/[^0-9+]/g, '')}`}
-                className="group p-3.5 rounded-2xl bg-slate-900/70 border border-slate-800/80 hover:border-emerald-500/50 hover:bg-slate-900/90 transition-all flex items-center justify-between"
+                className="group p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 hover:bg-slate-900 transition-all flex items-center justify-between"
               >
-                <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
-                    <Phone className="w-4.5 h-4.5" />
+                <div className="flex items-center gap-3.5 min-w-0">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
+                    <Phone className="w-5 h-5" />
                   </div>
-                  <div className="flex flex-col min-w-0">
+                  <div className="flex flex-col min-w-0 text-left">
                     <span className="text-[10px] font-mono text-slate-400 uppercase font-semibold">Direct Call / WhatsApp</span>
                     <span className="text-xs sm:text-sm font-bold text-white group-hover:text-emerald-300 transition-colors truncate">
                       {SITE_CONFIG.contact.phone}
@@ -160,7 +156,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
               </a>
             </div>
 
-            <div className="flex items-center gap-2 pt-1 text-xs text-slate-400">
+            <div className="flex items-center justify-center md:justify-start gap-2 pt-1 text-xs text-slate-400">
               <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>Response SLA: Guaranteed Under 24 Hours</span>
             </div>
@@ -168,7 +164,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
         </div>
 
         {/* Bottom Bar: Copyright, Legal Links & Tech Badges */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center md:text-left border-t border-slate-900 mt-4">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center md:text-left">
           <div className="flex flex-col sm:flex-row items-center gap-3">
             <span>© {new Date().getFullYear()} <strong className="text-white">{SITE_CONFIG.brandName}</strong>. All rights reserved.</span>
           </div>
@@ -199,3 +195,4 @@ export const Footer: React.FC<FooterProps> = ({ onOpenInquiry }) => {
     </footer>
   );
 };
+

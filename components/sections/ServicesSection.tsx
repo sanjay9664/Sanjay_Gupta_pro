@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Code2, Layers, Smartphone, Palette, ArrowRight, Cpu, Server } from "lucide-react";
+import { Code2, Layers, Smartphone, Palette, ArrowRight } from "lucide-react";
 
 interface ServicesSectionProps {
   onOpenInquiry?: () => void;
@@ -14,40 +14,40 @@ const SERVICES_CARDS = [
     icon: Code2,
     title: "Web Development",
     description: "Fast, responsive and scalable websites built with modern technologies like Next.js, React, and TypeScript.",
-    color: "bg-indigo-50 text-indigo-600",
+    color: "bg-indigo-50 text-indigo-600 border-indigo-100",
     href: "/services/custom-web-development",
   },
   {
     icon: Layers,
     title: "SaaS Platforms",
     description: "Powerful SaaS solutions & MVPs that help you automate operations, serve clients, and scale your business.",
-    color: "bg-sky-50 text-sky-600",
+    color: "bg-sky-50 text-sky-600 border-sky-100",
     href: "/services/full-stack-development",
   },
   {
     icon: Smartphone,
     title: "Mobile Apps",
     description: "Cross-platform mobile & progressive web apps for iOS and Android that users love using every day.",
-    color: "bg-emerald-50 text-emerald-600",
+    color: "bg-emerald-50 text-emerald-600 border-emerald-100",
     href: "/services/nextjs-development",
   },
   {
     icon: Palette,
     title: "UI/UX Design",
     description: "Beautiful, user-centered interface designs, modern design systems, and fluid micro-animations that convert.",
-    color: "bg-purple-50 text-purple-600",
+    color: "bg-purple-50 text-purple-600 border-purple-100",
     href: "/services/headless-ecommerce-development",
   },
 ];
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenInquiry }) => {
   return (
-    <section className="py-16 sm:py-24 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+    <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
       {/* Header */}
-      <div className="text-center max-w-2xl mx-auto flex flex-col items-center gap-3 mb-10 sm:mb-16">
-        <span className="text-xs font-mono font-bold tracking-widest text-indigo-600 uppercase">
-          WHAT WE DO
-        </span>
+      <div className="text-center max-w-2xl mx-auto flex flex-col items-center gap-3.5 mb-12 sm:mb-16">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-mono font-bold uppercase tracking-widest shadow-xs">
+          <span>WHAT WE DO</span>
+        </div>
         <h2 className="text-2xl xs:text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-heading">
           End-to-end Digital Solutions
         </h2>
@@ -57,7 +57,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenInquiry 
       </div>
 
       {/* 4 Cards Grid */}
-      <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
         {SERVICES_CARDS.map((service, idx) => {
           const IconComponent = service.icon;
           return (
@@ -67,11 +67,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenInquiry 
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group rounded-3xl bg-white border border-slate-200/80 p-5 sm:p-6 flex flex-col justify-between shadow-lg shadow-slate-200/30 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300 transition-all duration-300"
+              whileHover={{ y: -4 }}
+              className="group rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-7 flex flex-col justify-between items-center text-center xs:items-start xs:text-left shadow-xl shadow-slate-200/40 hover:shadow-2xl hover:shadow-indigo-500/10 hover:border-indigo-300 transition-all duration-300"
             >
-              <div className="flex flex-col gap-3.5 sm:gap-4">
-                <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-2xl ${service.color} flex items-center justify-center shrink-0`}>
-                  <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
+              <div className="flex flex-col items-center xs:items-start gap-4 w-full">
+                <div className={`w-13 h-13 rounded-2xl ${service.color} border flex items-center justify-center shrink-0 shadow-xs group-hover:scale-110 transition-transform`}>
+                  <IconComponent className="w-6 h-6" />
                 </div>
 
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 font-heading group-hover:text-indigo-600 transition-colors">
@@ -83,13 +84,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenInquiry 
                 </p>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
+              <div className="pt-5 mt-5 border-t border-slate-100/90 w-full flex items-center justify-center xs:justify-between">
                 <Link
                   href={service.href}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 hover:text-indigo-700 transition-colors min-h-[44px]"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 hover:text-indigo-700 transition-colors py-1 group/link"
                 >
                   <span>Learn More</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </motion.div>
@@ -99,3 +100,4 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenInquiry 
     </section>
   );
 };
+
