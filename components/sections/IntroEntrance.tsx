@@ -54,17 +54,20 @@ export const IntroEntrance: React.FC = () => {
         />
 
         <div className="relative z-10 flex flex-col items-center justify-center px-6 text-center max-w-2xl mx-auto">
-          {/* Logo Badge Icon */}
+          {/* Brand Logo Emblem */}
           <motion.div
-            initial={{ scale: 0.5, opacity: 0, rotate: -15 }}
+            initial={{ scale: 0.5, opacity: 0, rotate: -10 }}
             animate={{ scale: 1, opacity: 1, rotate: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="relative mb-6"
           >
-            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-gradient-to-tr from-indigo-600 via-blue-600 to-cyan-400 p-0.5 shadow-2xl shadow-indigo-500/40">
-              <div className="w-full h-full bg-slate-950 rounded-[22px] flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-indigo-500/10 animate-pulse" />
-                <Sparkles className="w-10 h-10 sm:w-12 sm:h-12 text-indigo-400 animate-spin-slow" />
+            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-tr from-indigo-600 via-blue-600 to-cyan-400 p-1 shadow-2xl shadow-indigo-500/50">
+              <div className="w-full h-full bg-white rounded-[22px] flex items-center justify-center relative overflow-hidden p-1.5 shadow-inner">
+                <img
+                  src="/brand-logo.png"
+                  alt={SITE_CONFIG.brandName}
+                  className="w-full h-full object-contain rounded-xl drop-shadow-md"
+                />
               </div>
             </div>
           </motion.div>
